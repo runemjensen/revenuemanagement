@@ -4,7 +4,7 @@ We consider the network of port calls made by two vessels that is shown in Figur
   
 The considered container groups are listed in Table~\ref{tab:groupIDs} together with an ID (used for brevity in tables to follow). The container groups are listed with a length, a weight class, its reefer property, its destination POD, the deadline (date), and a rate. Notice that not all container types (combinations of length, weight, and reefer-property) are present. As explained in Section~\ref{sec:smallNetwork}, some container groups are to be delievered later than the last day in the network, which is noted as ``later'' in this table. 
 
-\begin{table}[h!]
+\begin{table}
 \begin{center}
 \begin{scriptsize}
 \begin{tabular}{*{3}{@{\hskip15pt}r|*{5}{r@{\hskip3pt}}rc}}
@@ -42,7 +42,7 @@ The considered container groups are listed in Table~\ref{tab:groupIDs} together 
 
 Table~\ref{tab:loadLists} summarizes the groups that are available to import at each port call. Each group has a maximal import of 1000, and the groups that are underlined have a minimal/required import of 100 containers.
   
-\begin{table}[h!]
+\begin{table}
 \begin{center}
 \begin{small}
 \begin{tabular}{r@{\hskip0pt}r|l}
@@ -67,7 +67,7 @@ Table~\ref{tab:smallNetLegs} below shows what is on the two vessels ($V_1$ and $
 
 %\newgeometry{inner=1cm,outer= 1cm,bottom=1.5cm, top=1.5cm}
 \begin{scriptsize}
-\rowcolors{3}{}{lightgray}
+%\rowcolors{3}{}{lightgray}
 \begin{longtable}[c]{r|*{6}{r@{/}r}|r}
 \mult{7}{l}{Leg $\quad\rightarrow (P2,2)\;(V_1)$}\\
 						  &\mult{2}{c}{1} &\mult{2}{c}{2} &\mult{2}{c}{3} & \mult{2}{c}{4}&\mult{2}{c}{5} & \mult{2}{c|}{6}\\
@@ -93,7 +93,7 @@ Sf/Bm
 		&-4916 	  &   191411&     1805&   389471&    -6314&   629236&      482&   866123&    14188&   437835\vspace{1mm}\\
 \mult{1}{c}{}	&\mult{1}{r}{Trim}& \mult{1}{r}{-2.16}& \mult{1}{r}{Draft} & \mult{1}{r}{15.07}&\mult{1}{r}{GM}&\mult{1}{r}{0.75}& \mult{2}{r}{Displacement}&\mult{2}{r}{218788.00} &\mult{1}{r}{TEU}& \mult{1}{r}{12182.0}\\
 %%%%%%%%%%%%%%%%
-\rowcolor{white}
+%\rowcolor{white}
 \mult{2}{c}{}\\%	------
 \mult{7}{l}{Leg $(P2,2)\rightarrow (P1,4)\;(V_1)$}\vspace{1mm}\\
 \hline
@@ -116,11 +116,11 @@ Sf/Bm
 		 &\mult{2}{r}{    -}&\mult{2}{r}{     -}&\mult{2}{r}{13073.2}&\mult{2}{r}{8658.2}&\mult{2}{r}{4114.3}&\mult{2}{r|}{   -}\\
 \mult{1}{r|}{Sf/Bm}&
          -1924&    74929&      287&   123187&    -2322&   183297&      729&   248002&     3775&   116498\vspace{1mm}\\
-\rowcolor{white}
+%\rowcolor{white}
 \mult{1}{c}{}	&\mult{1}{r}{Trim}& \mult{1}{r}{-1.50}& \mult{1}{r}{Draft} & \mult{1}{r}{15.37}&\mult{1}{r}{GM}&\mult{1}{r}{2.85}& \mult{2}{r}{Displacement}&\mult{2}{r}{218788.00} &\mult{1}{r}{TEU}& \mult{1}{r}{11642.8}\\
 %%%%%%%%%%%%%%%%
 \mult{2}{c}{}\\%	------
-\rowcolor{white}
+%\rowcolor{white}
 \multicolumn{7}{l}{Leg $(P1,4)\rightarrow (P4,11)\;(V_1)$}\vspace{1mm}\\
 \hline
   30&        -&        -&    136.6&        -&    109.3&    315.0&        -&        -&        -&        -&        -&        -&           560.8\\
@@ -141,7 +141,7 @@ Sf/Bm
 		&\mult{2}{r}{     -}&\mult{2}{r}{     -}&\mult{2}{r}{     -}&\mult{2}{r}{     -}&\mult{2}{r}{     -}&\mult{2}{r|}{     -}\\
 \mult{1}{r|}{Sf/Bm}&
 				 -6755&   263014&    -5432&   622130&    -1972&   840750&     7128&   631313&     7047&   217472 \vspace{1mm}\\      
-\rowcolor{white}
+%\rowcolor{white}
 \mult{1}{c}{}	&\mult{1}{r}{Trim}& \mult{1}{r}{0.00}& \mult{1}{r}{Draft} & \mult{1}{r}{13.79}&\mult{1}{r}{GM}&\mult{1}{r}{3.54}& \mult{2}{r}{Displacement}&\mult{2}{r}{184515.97} &\mult{1}{r}{TEU}& \mult{1}{r}{9617.7}\\
 %%%%%%%%%%%%%%%%
 \mult{2}{c}{}\\%	------
@@ -163,7 +163,7 @@ Sf/Bm
 				-6526&   254105&    -3466&   548570&    -3453&   752911&     2656&   785275&    11785&   363670\vspace{1mm}\\      
 \mult{1}{c}{}	&\mult{1}{r}{Trim}& \mult{1}{r}{-2.50}& \mult{1}{r}{Draft} & \mult{1}{r}{14.21}&\mult{1}{r}{GM}&\mult{1}{r}{0.85}& \mult{2}{r}{Displacement}&\mult{2}{r}{208150.66} &\mult{1}{r}{TEU}& \mult{1}{r}{12281.0}\\
 %%%%%%%%%%%%%%%%
-\rowcolor{white}
+%\rowcolor{white}
 \mult{2}{c}{}\\%	------
 \mult{7}{l}{Leg $(P3,1)\rightarrow (P4,2)\;(V_2)$}\vspace{1mm}\\
 \hline
@@ -189,7 +189,7 @@ Sf/Bm
         -6755&   263014&    -8776&   720666&    -6496&  1171643&     8096&  1106658&    14492&    447209\vspace{1mm}\\      
 \mult{1}{c}{}	&\mult{1}{r}{Trim}& \mult{1}{r}{0.98}& \mult{1}{r}{Draft} & \mult{1}{r}{16.49}&\mult{1}{r}{GM}&\mult{1}{r}{0.6}& \mult{2}{r}{Displacement}&\mult{2}{r}{218788.00} &\mult{1}{r}{TEU}& \mult{1}{r}{14062.3}\\
 %%%%%%%%%%%5%%%%
-\rowcolor{white}
+%\rowcolor{white}
 \mult{2}{c}{}\\%
 \mult{7}{l}{Leg $(P4,2)\rightarrow (P2,5)\;(V_2)$}\vspace{1mm}\\
 \hline
@@ -213,7 +213,7 @@ Sf/Bm
         -1471&    57259&    -8279&   344550&    -5332&   746471&     1329&   909075&    14492&    447209\vspace{1mm}\\
 \mult{1}{c}{}	&\mult{1}{r}{Trim}& \mult{1}{r}{-2.50}& \mult{1}{r}{Draft} & \mult{1}{r}{10.67}&\mult{1}{r}{GM}&\mult{1}{r}{7.54}& \mult{2}{r}{Displacement}&\mult{2}{r}{154189.61} &\mult{1}{r}{TEU}& \mult{1}{r}{8994.1}\\
 %%%%%%%%%%%%%%%%
-\rowcolor{white}
+%\rowcolor{white}
 \mult{2}{c}{}\\%
 \multicolumn{7}{l}{Leg $(P2,5)\rightarrow (P3,8)\;(V_2)$}\vspace{1mm}\\
 \hline
@@ -238,7 +238,7 @@ Sf/Bm
 				 -639& 	  24896&		 1790&	  -9000&		-3443&		39826&		-2972&	 300383&		 6446&		198938\vspace{1mm}\\
 \mult{1}{c}{}	&\mult{1}{r}{Trim}& \mult{1}{r}{-2.50}& \mult{1}{r}{Draft} & \mult{1}{r}{11.06}&\mult{1}{r}{GM}&\mult{1}{r}{6.00}& \mult{2}{r}{Displacement}&\mult{2}{r}{160110.05} &\mult{1}{r}{TEU}& \mult{1}{r}{9575.7}\\
 %%%%%%%%%%%%%%%%
-\rowcolor{white}
+%\rowcolor{white}
 \mult{2}{c}{}\\%
 \multicolumn{7}{l}{Leg $(P3,8)\rightarrow (P4,9)\; (V_2)$}\vspace{1mm}\\
 \hline
@@ -259,7 +259,7 @@ Sf/Bm
    &\mult{2}{r}{2176.4}&\mult{2}{r}{ 801.8}&\mult{2}{r}{13073.2}&\mult{2}{r}{8658.2}&\mult{2}{r}{13754.1}&\mult{2}{r|}{     -}\\
 \mult{1}{r|}{Sf/Bm}&
 				-1116&		43457&     2896&    -9000&    -2896&    -9000&     1135&    62561&      490& 		15127\vspace{1mm}\\      
-\rowcolor{white}
+%\rowcolor{white}
 \mult{1}{c}{}	&\mult{1}{r}{Trim}& \mult{1}{r}{-0.75}& \mult{1}{r}{Draft} & \mult{1}{r}{15.03}&\mult{1}{r}{GM}&\mult{1}{r}{6.73}& \mult{2}{r}{Displacement}&\mult{2}{r}{208506.09} &\mult{1}{r}{TEU}& \mult{1}{r}{10022.1}\\
 \caption{Key numbers for sailing edges.\label{tab:smallNetLegs}}
 \end{longtable}
@@ -271,7 +271,7 @@ The next table (Table~\ref{tab:smallNetPortCalls}) shows the actions taking plac
 \newgeometry{inner=1cm,outer= 1cm,bottom=1.5cm, top=1.5cm}
 \begin{landscape}
 \begin{scriptsize}
-\rowcolors{3}{}{lightgray}
+%\rowcolors{3}{}{lightgray}
 \begin{tabular}{r|r@{\hskip3pt}r@{\hskip3pt}r@{\hskip3pt}r|*{6}{r@{\hskip3pt}r@{\hskip3pt}r@{\hskip3pt}r|}r@{\hskip3pt}r|}
 \mult{5}{l|}{Port call $(P2,2)\;(V_1)$}&							 		 \mult{4}{c|}{1}&								 		 \mult{4}{c|}{2}&								 		 \mult{4}{c|}{3}&							   		 \mult{4}{c|}{4}&								 		 \mult{4}{c|}{5}& 							 		\mult{4}{c|}{6}& \\
 \mult{5}{c|}{}										  &	  \mult{2}{c}{o}&	 \mult{2}{c|}{b}&	  \mult{2}{c}{o}&	 \mult{2}{c|}{b}&	  \mult{2}{c}{o}&	 \mult{2}{c|}{b}&	  \mult{2}{c}{o}&	 \mult{2}{c|}{b}&	  \mult{2}{c}{o}&	 \mult{2}{c|}{b}&   \mult{2}{c}{o}&	\mult{2}{c|}{b}&\mult{2}{c}{Total}\\

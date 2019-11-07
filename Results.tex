@@ -15,7 +15,7 @@ Since we only consider a single vessel in these experiments, we do not consider 
 To investigate the impact of the vessel capacity constraints (constraints \eqref{cap20}-\eqref{capDisp}), we find the maximal number of containers of a type $t\in T$ that can be placed on a vessel with a given ROB cargo. This number is found in the case where all vessel capacity constraints are enforced, and in the case when only 3 basic constraints capcity are considered are enforced (the simple model described above).
 The ROB cargo is constructed with heavy cargo in the fore- and aft-most horizontal sections while it is empty in the middle horizontal sections. It is given in Table~\ref{tab:ROBCap} and shows the number of each type of container in non-empty bays, on and below deck.
 
-\begin{table}[htbp]
+\begin{table}
 \begin{small}
 \begin{center}
 \begin{tabular}{r|*{10}{r@{-}r}}
@@ -38,7 +38,7 @@ To investigate the effects of the hydrostatic constraints, we have made two simi
 The results are shown in Table~\ref{tab:resultsCap} as  well as the overestimation (O.e.) of a model compared to a more constrained model. This overestimation is given in percentage of the objective value of the more constrained model and is shown in a column between the two models being compared.
 
 %
-\begin{table}[htbp]
+\begin{table}
 \begin{small}
 \begin{center}
 \begin{tabular}{r@{\hskip3pt}r@{\hskip3pt}r|*{7}{r}}
@@ -78,7 +78,7 @@ Looking at the results for the hydrostatic constraints, we see that the number o
 \subsubsection{GM and lashing constraints}
 For testing the impact of the GM-constraints (constraints \eqref{defGM}-\eqref{positiveLambdas}), a vessel have been filled with light ROB cargo \emph{below} deck as given in Table~\ref{tab:ROBGM}. The table shows the number of the given type of container in all bays below deck; there is no cargo above deck.\\
 
-\begin{table}[htbp]
+\begin{table}
 \begin{small}
 \begin{center}
 \begin{tabular}{r|*{12}{r}}
@@ -101,7 +101,7 @@ For the first GM-experiment, we then require that nothing is put above deck in b
 
 The results are shown in Table~\ref{tab:resultsGM}. The table only shows the results for the types for which the inclusion of the GM constraint makes a difference in the result.
 %Plain capacities gives same result as first column
-\begin{table}[htbp]
+\begin{table}
 \begin{small}
 \begin{center}
 \begin{tabular}{r@{\hskip3pt}r@{\hskip3pt}r|rrr}
@@ -138,7 +138,7 @@ Again, vessel capacity and hydrostatic constraints are included. We optimize the
 The results are shown in Table~\ref{tab:resultsGM2}. Only types for which there is a difference in objective value for the looked-at models are included.
 %Caps alone same as first column
 %reefer-results left out; they are the same across the board. The capacities at the different locations are already so small, that gm won't matter in these cases. Although, maybe, if we could have more onboard thna just that one type (ie. is it possible to bring something else as well, it might make a difference. Hm, it seems to be the same thing. Did I make a mistake?
-\begin{table}[htbp]
+\begin{table}
 \begin{small}
 \begin{center}
 \begin{tabular}{r@{\hskip3pt}r@{\hskip3pt}r|*{3}{r}|*{3}{r}|}%|*{5}{r}}
@@ -176,7 +176,7 @@ To show the potential impact of the different terminal constraints, we consider 
 \subsubsection{Overstowage}
 For investigating the effect of the overstowage constraints (constraint \eqref{overst}), we look at a vessel with the ROB cargo given in Table~\ref{tab:ROBOverst}. The vessel contains in total 4977 containers - mainly on deck - to be delivered (discharged) at the last port call $\mathfrak{C}$, and we require that 2000 containers (40' non-reefers of 19t) destined for the second port call $\mathfrak{B}$ needs to be loaded at the first port call $\mathfrak{A}$. The minimal needed moves to handle the ROB cargo and the exported cargo (loading and unloading) in this situation is therefore $4977 + 2\cdot 2000 = 8977$ moves.%; this is the case whether or not hydrostatic and gm constraints are included or not.  
 
-\begin{table}[htbp]
+\begin{table}
 \begin{small}
 \begin{center}
 \begin{tabular}{r|*{8}{r@{-}r}}
@@ -208,7 +208,7 @@ We now look at the minimal number of moves required in a number of scenarios whe
 For each scenario, we consider a case where cargo can be freely restowed, and a case where cargo is forced to be placed in the section from which is was removed.
 Table~\ref{tab:resultsOverst} summarizes the results. %required moves for loading/unloading cargo, when overstowage is considered, in a case where the cargo being moved is forced back to where is was removed from (same section), and in a case where this is not required (i.e. it can be freely repositioned as our model is presented).
 
-\begin{table}[htbp]
+\begin{table}
 \begin{small}
 \begin{center}
 \begin{tabular}{l|rr|rr|}
@@ -231,7 +231,7 @@ As the results show, not including these overstowage constraints can lead to a c
 As before, we consider the network $\mathfrak{A} \rightarrow \mathfrak{B} \rightarrow \mathfrak{C}$. On board the vessel is ROB cargo to $\mathfrak{C}$ and $\mathfrak{A}$, respectively, as shown in Table~\ref{tab:ROBPS}. 
 The table shows the number of each type of container in each non-empty bay, on and below deck. As the ROB cargo shows, 300 containers need to be discharged (imported) at port call $\mathfrak{A}$, and all this cargo is placed in one bay only.
 
-\begin{table}[htbp]
+\begin{table}
 \begin{small}
 \begin{center}
 \begin{tabular}{r|*{8}{r@{-}r}}
@@ -259,7 +259,7 @@ At port call $\mathfrak{A}$ it is possible to load (export) cargo to port call $
 For this test we let the time window be 20h, and we have 7 cranes at our disposal. If the time window and number of cranes are reduced, the objective value will of course be further reduced, but these values are not unreasonable low. 
 The results can be seen in Table~\ref{tab:resultsPS}. 
 
-\begin{table}[htbp]
+\begin{table}
 \begin{small}
 \begin{center}
 \begin{tabular}{l|r}
@@ -288,7 +288,7 @@ The appendix gives a preview of which information can be extracted from the mode
 %In reality, the network of port calls continues beyond the last date in $\mc{D}$ since the vessels will continuously repeat their cyclic journeys. In order to avoid that our model greedily imports profitable cargo in the later port calls in the network (without regard to how (or if) it will be unloaded later) while simultaneous leaving cargo at the yards, we therefore introduce a \emph{horizon} $H\in\mc{D}$, that indicates the (end of) the time period in which we export cargo. Thus, $\mi{Ex}^{g+}_i=0$ for all yard-side nodes $i$ whose port call is later than $H$. At the same time, it will only be possible to export container groups with a deadline before the last day in $\mc{D}$, thus $\mc{G}=\mc{G}'$. The part of the network after the horizon only serves to empty the vessel, and since e.g. the hydrostatic constraints might not hold for a (half-) empty vessel, the hydrostatic constraints are only enforced for sailing edges before the deadline. In fact, we only enforce network constraints, vessel capacity constraints and the overstowage constraint on edges/port calls after the horizon. 
 The horizon is here set to 11.
 
-\begin{figure}[htbp]
+\begin{figure}
 	\begin{center}
 		\includegraphics[scale = 0.54]{figures/Network2ServicesB.pdf}
 	\caption{Small network of port calls with two services.}
@@ -305,7 +305,7 @@ The appendix contains tables showing the content of the vessel (divided into sec
 
 Table~\ref{tab:ObjSmall} shows the objective value (the profit) when considering this network. As in the previous section we have added constraint groups one by one to see the impact of these. The abbreviations in the table is as follows: C: capacity constraints (\eqref{cap20}-\eqref{capDisp}), H: hydrostatic constraints (\eqref{defResF}-\eqref{draftLimits}), GML: GM limits (\eqref{defGM}-\eqref{minGM}), L: lashing constraints (\eqref{convexGM1}-\eqref{positiveLambdas}), O: Overstowage constraint (\eqref{overst}), MM: max moves constraints (\eqref{defMoves}-\eqref{maxPs}), and LC: long crane constraints (\eqref{longCrane}-\eqref{longCrane1Bay}). All experiments include the network flow constraint (\eqref{OnOff}-\eqref{sinks}).
 
-\begin{table}[htbp]
+\begin{table}
 \begin{small}
 \begin{center}
 \begin{tabular}{l|r}

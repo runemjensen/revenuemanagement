@@ -1,10 +1,10 @@
-\section{Model}\label{sec:model}
+\section{Model}%\label{sec:model}
 %\subsection{\red{Overview}}
 
 In this work, we consider a number of vessels that each sail with cargo between ports in two or more regions within a given time frame.  
 The vessels' journeys can be illustrated in a network of \emph{port calls} as in Figure~\ref{fig:timespace}, where the horizontal axis illustrates time (the ordered set of \emph{dates}, $\mc{D}$, where port calls happens), while the vertical axis is made up by the set of \emph{ports} ($\mc{P}$). At a port call, cargo can be loaded to the vessel from the yard, or cargo can be discharged from the vessel to the yard. On the other hand, cargo at the yard of a port $p$ can be left at the yard until the next port call at $p$, as the dashed lines in Figure~\ref{fig:timespace} indicates. 
 %
-\begin{figure}[htbp]
+\begin{figure}
 	\centering
 		\includegraphics[scale = 1.3]{figures/netwBW2.pdf}
 		\caption{A network of port calls showing four vessels sailing on routes between seven ports in two different regions.}  \label{fig:timespace}
@@ -16,7 +16,7 @@ The first date in the network corresponds to the current state of the network, a
 The network of port calls in Figure~\ref{fig:timespace} only gives a birds eye view of the flow graph $(\mc{N},\mc{E})$ that our model will be based on. In the detailed flow graph, each port call corresponds to a \emph{yard-side} node (in the set $\mc{N}^\ttt{y}\subset \mc{N}$) and a \emph{vessel-side} node (in the set $\mc{N}^\ttt{v}\subset\mc{N}$). This is illustrated in Figure~\ref{fig:flow} for a small network with only two services and only 6 port calls within the time frame of interest. The edges between the yard-side node and the vessel-side node correspond to loading and discharging of cargo between the vessel and the yard. The nodes $\mc{N}^\ttt{y}$ and $\mc{N}^\ttt{v}$ makes up the nodes of the flow network that are neither sources nor sinks. %Each of these nodes therefore has a port, a date, and a vessel associated with them.
 Besides these nodes, $\mc{N}$ is comprised of the sources $I^\ttt{x}$, $I^\ttt{p}$, and $I^\ttt{v}$, denoting a common export node, a common source for the cargo at yards, and a common source for the cargo aboard the vessel, plus the sinks $O^\ttt{x}$, $O^\ttt{p}$, and $O^\ttt{v}$, which likewise are a common sink for import of cargo, cargo at yards after the last date within the time frame, and cargo on the vessel after the last date, respectively. See Figure~\ref{fig:flow}.
 %
-\begin{figure}[htbp]
+\begin{figure}
 	\centering
 		\includegraphics[scale = 1]{figures/fullFlow.pdf}
 		\caption{Full flow network}  \label{fig:flow}
@@ -30,7 +30,7 @@ see Figure~\ref{fig:flow}.
 Each vessel $v\in\mc{V}$ is divided into a number of \emph{sections}, and each section is divided into a \emph{subsection on deck} and a \emph{subsection below deck}, see Figure~\ref{fig:vessel}. We let $\mc{S}_v$ and $\mc{U}_v$ denote the set of sections and the set of all subsections, respectively, of the vessel $v\in \mc{V}$.
 Cargo can be stowed in most (sub)sections, though, some sections might not contain any stowage area. Further, each section has ballast tanks available that can be filled with water to help distribute weight through out the vessel to keep it in hydrostatic balance.
 
-\begin{figure}[htbp]
+\begin{figure}
 	\centering
 		\includegraphics[scale = 1.2]{figures/vessel2.pdf}
 		\caption{A section of a vessel and its subsections on and below deck}  \label{fig:vessel}
@@ -44,7 +44,7 @@ In the following, we will describe the constraints of the model, before we final
 \subsection{Network flow constraints}\label{sec:flow}
  Table \ref{tab:net} summarizes the sets, variables and parameters, respectively, used to describe the flow model at a general level.
 
-\begin{table}[htbp]
+\begin{table}
 \centering
 \btsize
 \begin{tabular}{lp{10cm}}
@@ -169,7 +169,7 @@ The constraints on the sailing edges that our model take into account are vessel
 \subsubsection{Vessel capacity constraints}
 Table~\ref{tab:capParams} summarizes the (not previously introduced) variables and parameters used to describe the vessel capacity constraints of the vessel of a sailing edge in the flow network.
 
-\begin{table}[htbp]
+\begin{table}
 \centering
 \btsize
 \begin{tabular}{lp{10cm}}
@@ -208,7 +208,7 @@ Further, for each section, there is a limit on the amount of ballast water (in w
 \subsubsection{Hydrostatic constraints}
 When sailing, the vessel needs to be in hydrostatic balance, which the following constraints ensure. Table~\ref{tab:capParams} summarizes the sets, variables and parameters (not previously introduced) used to describe the imposed hydrostatic constraints. Details of this model can be found in \cite{iccl18}.
 
-\begin{table}[htbp]
+\begin{table}
 \centering
 \btsize
 \begin{tabular}{lp{10cm}}

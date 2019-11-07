@@ -4,6 +4,49 @@
 \usepackage{threeparttable}
 
 
+%----------------------------------
+%\usepackage[USenglish]{babel} %francais, polish, spanish, ...
+%\usepackage[T1]{fontenc}
+%\usepackage{color}
+%\usepackage[table]{xcolor}
+%\definecolor{lightgray}{gray}{0.9}
+\usepackage{mathtools}
+%\usepackage{subcaption}
+%\usepackage{multirow, booktabs}
+%\usepackage{hyperref}
+\usepackage{lscape}
+%\usepackage{eufrak}
+%\usepackage{wrapfig}
+
+%\usepackage{lmodern} %Type1-font for non-english texts and characters
+%\usepackage{algorithm}
+%\usepackage[noend]{algpseudocode}
+%\usepackage{mnsymbol}
+\newcommand{\tn}{\tnote}
+\newcommand{\mr}{\multirow}
+%% Packages for Graphics & Figures %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{graphicx} %%For loading graphic files
+\usepackage{amsmath}
+\usepackage{amsthm} 
+%\usepackage{thmtools}
+%\usepackage{amsfonts}
+%\usepackage[all,cmtip]{xy}
+\usepackage{longtable}
+
+\newcommand{\ul}{\underline}
+\newcommand{\so}{\smashoperator}
+\newcommand{\mi}{\mathit}
+\newcommand{\mc}{\mathcal}
+\newcommand{\mb}{\mathbb}
+\newcommand{\mult}{\multicolumn}
+\newcommand\red[1]{\textcolor{red}{#1}}
+
+\newcommand{\ttt}{\texttt}
+\newcommand{\btsize}{\begin{small}}
+\newcommand{\etsize}{\end{small}}
+%---------------------------------------------------------------------
+
+
 %%%Author macros
 \def\tsc#1{\csdef{#1}{\textsc{\lowercase{#1}}\xspace}}
 %%%
@@ -43,20 +86,22 @@ Liner shipping\sep Revenue Management \sep Capacity Management \sep Cargo Alloca
 
 \maketitle
 
+
+\input{Intro}
+\input{relatedWork}
+\input{modelShort4}
+\input{issues}
+\input{Results}
+\input{Conclusion}
+\section*{Aknowledgments}
+
+\input{smallNetwork2}
+
+%% Loading bibliography style file
 %\bibliographystyle{model1-num-names}
 \bibliographystyle{cas-model2-names}
 %\bibliographystyle{alpha}
 \bibliography{bibfile}
-
-\input{Intro}
-\input{relatedWork}
-%\input{modelShort4}
-%\input{issues}
-%\input{Results}
-%\input{Conclusion}
-%\section*{Aknowledgments}
-
-%% Loading bibliography style file
 
 
 
