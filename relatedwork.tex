@@ -8,7 +8,7 @@ When the model considered contains more than one vessel (as in the case with mul
 Another concern related to RM is the re-distribution/repositioning of empty containers from ports with a surplus of these to ports in need of them (caused by an uneven demand across regions resulting in a container flow/trade imbalance). Redistributing empty containers is not immediately a revenue concern, but is required in order for service to flow/be possible, and as is evident, that the empty containers take up place on the vessel that could otherwise be filled with profit-giving cargo. Repositioning the empty containers is required to provide the service (product) in the future. - Otherwise the LS company to have to rent empty containers and pay for storage of empty containers at other locations or lose its customers’ trust. For several of the works included in the table below, repositioning of empty containers or balancing of the number of ingoing or outgoing containers in one way or other is included (\citet{Zurheide15, Ting04, Xianzhi07, Zou08, Zurheide12, Lu10, Chang15, Song12}). \citet{Wang15b} describes how to include it in their work but it is not included in the experiments.
 
 Though this line of work is focused on capacity management, it varies which types of constraints on the capacity is considered. The most common approach is to consider a subset of the constraints on the total volume (number of containers in TEU), total maximal weight of a vessel, and potentially the total number of reefer plugs available on the vessel (i.e., how many reefer containers, the vessel can carry).  Of the work mentioned in this section, all take volume capacity into consideration - if different sizes of containers are considered, then a TEU-limit is used. Further, a number of papers includes a weight limit (\citet{Bingzhou08, Zurheide15, Ting04, Xianzhi07, Feng08, Zurheide12, Wang15b, Lu10, Chang15, Wang19a, Feng07}), while a few considers reefer plugs (\citet{Zurheide15, Ting04, Zurheide12}, (\citet{Wang15b} - shown how to include in model but not used in experiments), \citet{Lu10}). Furthermore, \citet{Ting04} considers a maximal total number of 40' containers, and \citet{Wang19a} considers bunker fuel capacity. From a ``terminal capacity'' point of view, \citet{Wang15b} has restrictions on sailing speed and port time (in order for service time to add up) and \citet{Wang19a} considers a maximal sailing speed. In some of the work, the capacities mentioned are operational and can change per port or leg, since e.g. some capacity is reserved for contractual bookings or are shared with other companies or the displacement limit is different due to the depth of ports (\citet{Xianzhi07, Feng08, Zou08, Zurheide12, Chang15, Feng07}).
-\end{document}
+
 \begin{sidewaystable}[htbp]
 \begin{scriptsize}
 %\rowcolors{2}{}{lightgray}
@@ -41,7 +41,7 @@ Article				& Service				& Tr		& Em	 	& Capacities 	& Types 								& Other aspec
 					&						& 			&			& 				& 										& discharge, demand backlog, storing costs\\
 \citet{Zurheide12}	& Multi 				&Yes\tn{3}	& Yes		& V, W, RP		& \{20DC, 20R, 40DC, 40HC, 40R\} 		& Includes segments for containers and \\
 					&						&			&			& Operational	& $\times$\{loaded, empty\} (also leased (?))& leasing of containers \\
-\rowcolor{lightgray}&\setcounter{rownum}{0}	&			&			&				& Segments: \{normal, priority\}		&\\
+					&						&			&			&				& Segments: \{normal, priority\}		&\\
 \citet{Zurheide15}	& Multi 				&Yes\tn{3}	& Yes		& V, W, RP		& \{20DC, 40DC, 40HC, 20R, 40HR\}		& Model used for booking acceptance \\
 					&						&			&			&	Operational	& $\times$\{full, empty\}				& strategies\\
 					&						&			&			&				&  Segments: \{standard, flex, express\}&\\
@@ -84,7 +84,7 @@ Article				& Service				& Tr		& Em	 	& Capacities 	& Types 								& Other aspec
 
 \citet{Bingzhou08}: Makes a dynamic programming model where bookings arrive one at a time with a given probability before departure. The aim is to give the company an accept/reject strategy that will maximize the expected revenue over the whole booking period. [Capacity is two-dimensional].
 
-\citet{t}Zou08}: optimizes allocation of contractual, ad hoc containers, and empty containers when demands are stochastic.
+\citet{Zou08}: optimizes allocation of contractual, ad hoc containers, and empty containers when demands are stochastic.
 
 \citet{Lu10}: slot allocation model (tactical level) to satisfy estimated seasonal demand to maximize profit per round trip voyage.
 
