@@ -1,0 +1,208 @@
+\documentclass[a4paper,fleqn]{cas-sc}
+\usepackage[authoryear,longnamesfirst]{natbib}
+\usepackage{rotating}
+\usepackage{threeparttable}
+
+
+%%%Author macros
+\def\tsc#1{\csdef{#1}{\textsc{\lowercase{#1}}\xspace}}
+%%%
+
+\begin{document}
+\let\WriteBookmarks\relax
+\def\floatpagepagefraction{1}
+\def\textpagefraction{.001}
+\shorttitle{Stowage-Based Multi-Service Revenue Management in Liner Shipping}
+\shortauthors{M.L. Ajspur, R.M. Jensen}
+
+\title[mode = title]{Stowage-Based Multi-Service Revenue Management in Liner Shipping}                      
+
+\author[1]{Mai L. Ajspur}
+\ead{ajspur@itu.dk}
+\address[1]{Rued Langgaards Vej 7, 2300 Copenhagen S, Denmark}
+
+\author[1]{Rune M. Jensen}
+\cormark[1]
+\ead{rmj@itu.dk}
+
+\cortext[cor1]{Corresponding author}
+
+\begin{abstract}
+What we do is very important!\\\\\\It really is!
+\end{abstract}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{graphicalabstract}
+\includegraphics[width=13cm]{figures/abstract.pdf}
+\end{graphicalabstract}
+
+\begin{keywords}
+Liner shipping\sep Revenue Management \sep Capacity Management \sep Cargo Allocation% \sep Operational Level Cargo Routing \sep Revenue Optimization
+\end{keywords}
+
+\maketitle
+
+%\bibliographystyle{model1-num-names}
+\bibliographystyle{cas-model2-names}
+%\bibliographystyle{alpha}
+\bibliography{bibfile}
+
+\input{Intro}
+\input{relatedWork}
+%\input{modelShort4}
+%\input{issues}
+%\input{Results}
+%\input{Conclusion}
+%\section*{Aknowledgments}
+
+%% Loading bibliography style file
+
+
+
+
+
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% from the template
+
+Citations: \citet{Fortunato2010}. Also refer \citet{Fortunato2010,NewmanGirvan2004}.
+More citations are here \citep{Fortunato2010,Vehlowetal2013}.
+
+\section{Floats}
+\begin{figure}
+	\centering
+		\includegraphics[scale=1.0]{figures/fullFlow.pdf}
+	\caption{Here is the caption of this amazing figure, See also Table \protect\ref{tbl1}).}
+	\label{FIG:1}
+\end{figure}
+
+
+\begin{table}[width=.9\linewidth,cols=4,pos=h]
+\caption{This is a test caption. This is a test caption. This is a test
+caption. This is a test caption.}\label{tbl1}
+\begin{tabular*}{\tblwidth}{@{} LLLL@{} }
+\toprule
+Col 1 & Col 2 & Col 3 & Col4\\
+\midrule
+12345 & 12345 & 123 & 12345 \\
+12345 & 12345 & 123 & 12345 \\
+12345 & 12345 & 123 & 12345 \\
+12345 & 12345 & 123 & 12345 \\
+12345 & 12345 & 123 & 12345 \\
+\bottomrule
+\end{tabular*}
+\end{table}
+
+\section[Theorem and ...]{Theorem and theorem like environments}
+
+{cas-sc.cls} provides a few shortcuts to format theorems and
+theorem-like environments with ease. In all commands the options that
+are used with the \verb+\newtheorem+ command will work exactly in the same
+manner. {cas-sc.cls} provides three commands to format theorem or
+theorem-like environments: 
+
+\begin{verbatim}
+ \newtheorem{theorem}{Theorem}
+ \newtheorem{lemma}[theorem]{Lemma}
+ \newdefinition{rmk}{Remark}
+ \newproof{pf}{Proof}
+ \newproof{pot}{Proof of Theorem \ref{thm2}}
+\end{verbatim}
+
+
+\newtheorem{theorem}{Theorem}
+
+\begin{theorem}
+For system (8), consensus can be achieved with 
+$\|T_{\omega z}$ ...
+\begin{eqnarray}\label{10}
+....
+\end{eqnarray}
+\end{theorem}
+
+\section{Bibliography}
+
+Two bibliographic style files (\verb+*.bst+) are provided ---
+{model1-num-names.bst} and {model2-names.bst} --- the first one can be
+used for the numbered scheme. This can also be used for the numbered
+with new options of {natbib.sty}. The second one is for the author year
+scheme. When  you use model2-names.bst, the citation commands will be
+like \verb+\citep+,  \verb+\citet+, \verb+\citealt+ etc. However when
+you use model1-num-names.bst, you may use only \verb+\cite+ command.
+
+\verb+thebibliography+ environment.  Each reference is a
+\verb+\bibitem+ and each \verb+\bibitem+ is identified by a label,
+by which it can be cited in the text:
+
+\noindent In connection with cross-referencing and
+possible future hyperlinking it is not a good idea to collect
+more that one literature item in one \verb+\bibitem+.  The
+so-called Harvard or author-year style of referencing is enabled
+by the \LaTeX{} package {natbib}. With this package the
+literature can be cited as follows:
+
+
+\begin{enumerate}[\textbullet]
+\item Parenthetical: \verb+\citep{WB96}+ produces (Wettig \& Brown, 1996).
+\item Textual: \verb+\citet{ESG96}+ produces Elson et al. (1996).
+\item An affix and part of a reference:
+\verb+\citep[e.g.][Ch. 2]{Gea97}+ produces (e.g. Governato et
+al., 1997, Ch. 2).
+\end{enumerate}
+
+In the numbered scheme of citation, \verb+\cite{<label>}+ is used,
+since \verb+\citep+ or \verb+\citet+ has no relevance in the numbered
+scheme.  {natbib} package is loaded by {cas-sc} with
+\verb+numbers+ as default option.  You can change this to author-year
+or harvard scheme by adding option \verb+authoryear+ in the class
+loading command.  If you want to use more options of the {natbib}
+package, you can do so with the \verb+\biboptions+ command.  For
+details of various options of the {natbib} package, please take a
+look at the {natbib} documentation, which is part of any standard
+\LaTeX{} installation.
+
+\appendix
+\section{My Appendix}
+Appendix sections are coded under \verb+\appendix+.
+
+\verb+\printcredits+ command is used after appendix sections to list 
+author credit taxonomy contribution roles tagged using \verb+\credit+ 
+in frontmatter.
+
+\printcredits
+
+\bio{}
+Author biography without author photo.
+Author biography. Author biography. Author biography.
+Author biography. Author biography. Author biography.
+Author biography. Author biography. Author biography.
+Author biography. Author biography. Author biography.
+Author biography. Author biography. Author biography.
+Author biography. Author biography. Author biography.
+Author biography. Author biography. Author biography.
+Author biography. Author biography. Author biography.
+Author biography. Author biography. Author biography.
+\endbio
+
+\bio{figures/pic1}
+Author biography with author photo.
+Author biography. Author biography. Author biography.
+Author biography. Author biography. Author biography.
+Author biography. Author biography. Author biography.
+Author biography. Author biography. Author biography.
+Author biography. Author biography. Author biography.
+Author biography. Author biography. Author biography.
+Author biography. Author biography. Author biography.
+Author biography. Author biography. Author biography.
+Author biography. Author biography. Author biography.
+\endbio
+
+\bio{figures/pic1}
+Author biography with author photo.
+Author biography. Author biography. Author biography.
+Author biography. Author biography. Author biography.
+Author biography. Author biography. Author biography.
+Author biography. Author biography. Author biography.
+\endbio
