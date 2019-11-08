@@ -9,14 +9,18 @@ Another concern related to RM is the re-distribution/repositioning of empty cont
 
 Though this line of work is focused on capacity management, it varies which types of constraints on the capacity is considered. The most common approach is to consider a subset of the constraints on the total volume (number of containers in TEU), total maximal weight of a vessel, and potentially the total number of reefer plugs available on the vessel (i.e., how many reefer containers, the vessel can carry).  Of the work mentioned in this section, all take volume capacity into consideration - if different sizes of containers are considered, then a TEU-limit is used. Further, a number of papers includes a weight limit (\citet{Bingzhou08, Zurheide15, Ting04, Xianzhi07, Feng08, Zurheide12, Wang15b, Lu10, Chang15, Wang19a, Feng07}), while a few considers reefer plugs (\citet{Zurheide15, Ting04, Zurheide12}, (\citet{Wang15b} - shown how to include in model but not used in experiments), \citet{Lu10}). Furthermore, \citet{Ting04} considers a maximal total number of 40' containers, and \citet{Wang19a} considers bunker fuel capacity. From a ``terminal capacity'' point of view, \citet{Wang15b} has restrictions on sailing speed and port time (in order for service time to add up) and \citet{Wang19a} considers a maximal sailing speed. In some of the work, the capacities mentioned are operational and can change per port or leg, since e.g. some capacity is reserved for contractual bookings or are shared with other companies or the displacement limit is different due to the depth of ports (\citet{Xianzhi07, Feng08, Zou08, Zurheide12, Chang15, Feng07}).
 
-\begin{sidewaystable}[htbp]
-\begin{scriptsize}
+\afterpage{
+\begin{landscape}
+\begin{table}[width=0.95\linewidth,cols=7,pos=p]
+\caption{Overview of features of models used for revenue management in liner shipping in existing work.}\label{tab:relatedWork}
+\begin{footnotesize}
 %\rowcolors{2}{}{lightgray}
 \begin{threeparttable}
-\begin{tabular}{l|llllll}
-Article				& Service				& Tr		& Em	 	& Capacities 	& Types 								& Other aspects of model \\
+\begin{tabular*}{\tblwidth}{@{} *{7}{L} @{}}
+\toprule
+Article				& Service				& Tr.		& Em.	 	& Capacities 	& Types 								& Other aspects of model \\
 &&&&&&\\
-\hline	
+\midrule
 \citet{Maragos94}	& Single 				& No 		& No		& V 			& Different service classes				& Booking request arrives before departure\\
 					&						& 			&			& 				& 										& with given probabilities\\
 \citet{Ting04}		& Single 				& No 		& Yes		& V, W, RP, 	& \{20DC, 20R, 40DC, 40R\} 				&\\
@@ -35,7 +39,7 @@ Article				& Service				& Tr		& Em	 	& Capacities 	& Types 								& Other aspec
 					&						& 			&			& 				& 										& with given probabilities\\
 \citet{Zou08}		& Single 				& No 		& Yes		& V				& Contractual, ad hoc, empty 			& Stochastic demand\\
 					& (repeated) 			& 			&			& Operational	& 										&\\
-\citet{Lu10}			& Single 				& No 		& Yes		& V, W, RP		& \{20DC, 40DC, 20R, 40R,				&\\
+\citet{Lu10}			& Single 				& No 		& Yes		& V, W, RP		& \{20DC, 40DC, 20R, 40R,			&\\
 					& (seasonal) 			& 			& 			& Operational W & 20E, 40E, 40HQ, 20S\}					&\\
 \citet{Song12}		& Multi 				&Yes\tn{3}	& Yes		& V       		& Laden, empty 							& Includes explicitly costs for load and \\
 					&						& 			&			& 				& 										& discharge, demand backlog, storing costs\\
@@ -49,14 +53,15 @@ Article				& Service				& Tr		& Em	 	& Capacities 	& Types 								& Other aspec
 					& (Intra-Asia) 			& 			& 			& Operational	& 										&\\
 \citet{Wang15b}		& Multi 				& Yes 		& No\tn{2}	& V, W, RP\tn{2}& Multi-type with different weight,	 	& Incl. time for sailing, waiting and handling, \\
 					& (seasonal) 			&  			& 			& 				& size and rates. Empty containers\tn{2}& plus bunker fuel price and consumption\\
-\citet{Zhen17}		& Multi 				& Yes		& No		& V				& One type								& Uses model to compare and develop \\
-					&						&			&			&				&										& container routing strategies under uncertain demands \\
+\citet{Zhen17}		& Multi 				& Yes		& No		& V				& One type								& Uses model to compare and develop container\\
+					&						&			&			&				&										& routing strategies under uncertain demands \\
 \citet{Wang19a}		& Single 				& No 		& No		& V, W,			& One type								& Incorporates speed and bunkering \\
 					&						&			&			& Bunker cap.	& 										& optimization \\
 \citet{Wang19b}		& Multi 				& No\tn{1}	& No		& V				& One type\tn{5}						& Using models for different RM strategies \\
 					&						&			&			& 				&										& (overbooking and delivery-postponement)\\
-\end{tabular}
-\begin{tablenotes}\footnotesize
+\bottomrule
+\end{tabular*}
+\begin{tablenotes}\scriptsize
 \item[1] Postponement possible (\citet{Lee07}: of contractual containers, \citet{Wang19b}: for a postponement strategy)
 \item[2] Modelled, not used in experiments. (\citet{Bingzhou08}: Empty containers are non-heavy containers which should have a cost. [Don’t think it is used])
 \item[3] Maximally two per booking (in experiments)
@@ -64,8 +69,10 @@ Article				& Service				& Tr		& Em	 	& Capacities 	& Types 								& Other aspec
 \item[5] For postponement strategy: time-sensitive and time-insensitive segments.
 \end{tablenotes}
 \end{threeparttable}
-\end{scriptsize}
-\end{sidewaystable}
+\end{footnotesize}
+\end{table}
+\end{landscape}
+}
 
 \subsection{Overview}
 \citet{Maragos94}: dynamic ship capacity allocation for a liner shipping service with rates dependent on the time before departure at which the booking arrives. The task is to accept/reject bookings as they arrive to maximize the overall profit. 
