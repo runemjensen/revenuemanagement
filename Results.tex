@@ -236,18 +236,23 @@ The results can be seen in Table~\ref{tab:resultsPS}.
 
 \begin{table}[width=.9\linewidth,cols=2,pos=h]
 \caption{Maximal load/export of 40', 13t non-reefers.}\label{tab:resultsPS}
+\begin{threeparttable}
 \begin{tabular*}{\tblwidth}{@{} LR @{}}
 \toprule
 Constraints included						  		&Exported containers\\
 \midrule
-Capa., 												&4961.0$\phantom{^{*}}$\\
-Capa., hydro. 										&4961.0$\phantom{^{*}}$\\
-Capa., hydro., GM									&4627.8$\phantom{^{*}}$\\
-Capa., hydro., GM, overst.							&4627.8$\phantom{^{*}}$\\
-Capa., hydro., GM, overst., max. moves:				&3900.0$^{*}$\\ 
-Capa., hydro., GM, overst., max. moves, long crane:	&3717.6$\phantom{^{*}}$\\
+Capa., 												&4961.0\phantom{\tn{$^{*}$}}\\
+Capa., hydro. 										&4961.0\phantom{\tn{$^{*}$}}\\
+Capa., hydro., GM									&4627.8\phantom{\tn{$^{*}$}}\\
+Capa., hydro., GM, overst.							&4627.8\phantom{\tn{$^{*}$}}\\
+Capa., hydro., GM, overst., max. moves:				&3900.0\tn{$^{*}$}\\ 
+Capa., hydro., GM, overst., max. moves, long crane:	&3717.6\phantom{\tn{$^{*}$}}\\
 \bottomrule
 \end{tabular*}
+\begin{tablenotes}
+\item[$^*$]Using all available crane moves.
+\end{tablenotes}
+\end{threeparttable}
 \end{table}
 
 When including the maximal moves-constraints, we get that the maximal number of containers that can be loaded (*) equals $20\text{ hours}\cdot7\text{ cranes}\cdot 30 \frac{\text{moves}}{\text{hour and crane}} - 300 \text{ moves} = 3900$, i.e. we use all the available crane moves.  
