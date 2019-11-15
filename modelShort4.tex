@@ -3,7 +3,7 @@
 In this work, we consider a number of vessels that each sail with cargo between ports in two or more regions within a given time frame.  
 The vessels' journeys can be illustrated in a network of \emph{port calls} as in Figure~\ref{fig:timespace}, where the horizontal axis illustrates time (the ordered set of \emph{dates}, $\mc{D}$, where port calls happens), while the vertical axis is made up by the set of \emph{ports} ($\mc{P}$). At a port call, cargo can be loaded to the vessel from the yard, or cargo can be discharged from the vessel to the yard. On the other hand, cargo at the yard of a port $p$ can be left at the yard until the next port call at $p$, as the dashed lines in Figure~\ref{fig:timespace} indicates. 
 
-\begin{figure}
+\begin{figure}[pos=htbp]
 	\centering
 		\includegraphics[scale = 1.3]{figures/netwBW2.pdf}
 		\caption{A network of port calls showing four vessels sailing on routes between seven ports in two different regions.}  \label{fig:timespace}
@@ -15,7 +15,7 @@ The first date in the network corresponds to the current state of the network, a
 The network of port calls in Figure~\ref{fig:timespace} only gives a birds eye view of the flow graph $(\mc{N},\mc{E})$ that our model will be based on. In the detailed flow graph, each port call corresponds to a \emph{yard-side} node (in the set $\mc{N}^\ttt{y}\subset \mc{N}$) and a \emph{vessel-side} node (in the set $\mc{N}^\ttt{v}\subset\mc{N}$). This is illustrated in Figure~\ref{fig:flow} for a small network with only two services and only 6 port calls within the time frame of interest. The edges between the yard-side node and the vessel-side node correspond to loading and discharging of cargo between the vessel and the yard. The nodes $\mc{N}^\ttt{y}$ and $\mc{N}^\ttt{v}$ makes up the nodes of the flow network that are neither sources nor sinks. %Each of these nodes therefore has a port, a date, and a vessel associated with them.
 Besides these nodes, $\mc{N}$ is comprised of the sources $I^\ttt{x}$, $I^\ttt{p}$, and $I^\ttt{v}$, denoting a common export node, a common source for the cargo at yards, and a common source for the cargo aboard the vessel, plus the sinks $O^\ttt{x}$, $O^\ttt{p}$, and $O^\ttt{v}$, which likewise are a common sink for import of cargo, cargo at yards after the last date within the time frame, and cargo on the vessel after the last date, respectively. See Figure~\ref{fig:flow}.
 
-\begin{figure}
+\begin{figure}[pos=htbp]
 	\centering
 		\includegraphics[scale = 1]{figures/fullFlow.pdf}
 		\caption{Full flow network.}  \label{fig:flow}
@@ -32,7 +32,7 @@ see Figure~\ref{fig:flow}.
 Each vessel $v\in\mc{V}$ is divided into a number of \emph{sections}, and each section is divided into a \emph{subsection on deck} and a \emph{subsection below deck}, see Figure~\ref{fig:vessel}. We let $\mc{S}_v$ and $\mc{U}_v$ denote the set of sections and the set of all subsections, respectively, of the vessel $v\in \mc{V}$.
 Cargo can be stowed in most (sub)sections, though, some sections might not contain any stowage area. Further, each section has ballast tanks available that can be filled with water to help distribute weight through out the vessel to keep it in hydrostatic balance.
 
-\begin{figure}
+\begin{figure}[pos=htbp]
 	\centering
 		\includegraphics[scale = 1.2]{figures/vessel2.pdf}
 		\caption{A section of a vessel and its subsections on and below deck.}  \label{fig:vessel}
@@ -46,9 +46,9 @@ In the following, we will describe the constraints of the model, before we final
 \subsection{Network flow constraints}\label{sec:flow}
  Table \ref{tab:net} summarizes the sets, variables and parameters, respectively, used to describe the flow model at a general level.
 
-\begin{table}[width=.9\linewidth,cols=2,pos=h]%\begin{tabular*}{\tblwidth}{@{} Lp{11cm} @{}}
+\begin{table}[width=.9\linewidth,cols=2,pos=htbp]%\begin{tabular*}{\tblwidth}{@{} Lp{11cm} @{}}
 \caption{Sets, variables, and parameters used to describe the flow network.}\label{tab:net}
-\begin{tabular*}{\tblwidth}{@{} Lp{11cm} @{}}
+\begin{tabular*}{\tblwidth}{@{} Lp{10.8cm} @{}}
 \toprule
 $\mc{P}$, $\mc{D}$, $\mc{V}$		& Set of ports, dates, and vessels, respectively.\\
 $\mc{S}_v$, $\mc{U}_v$				& Set of sections and set of all subsections, respectively, of the vessel $v\in\mc{V}$.\\ 
@@ -142,7 +142,7 @@ The constraints on the sailing edges that our model take into account are vessel
 \subsubsection{Vessel capacity constraints}
 Table~\ref{tab:capParams} summarizes the (not previously introduced) variables and parameters used to describe the vessel capacity constraints of the vessel of a sailing edge in the flow network.
 
-\begin{table}[width=.9\linewidth,cols=2,pos=h]
+\begin{table}[width=.9\linewidth,cols=2,pos=htbp]
 \caption{Variables and parameters used for capacity constraints.}\label{tab:capParams}
 \begin{tabular*}{\tblwidth}{@{} Lp{11cm} @{}}
 \toprule
@@ -180,7 +180,7 @@ Further, for each section, there is a limit on the amount of ballast water (in w
 \subsubsection{Hydrostatic constraints}
 When sailing, the vessel needs to be in hydrostatic balance, which the following constraints ensure. Table~\ref{tab:capParams} summarizes the sets, variables and parameters (not previously introduced) used to describe the imposed hydrostatic constraints. Details of this model can be found in \cite{iccl18}.
 
-\begin{table}[width=.9\linewidth,cols=2,pos=h]
+\begin{table}[width=.9\linewidth,cols=2,pos=htbp]
 \caption{Sets, variables and parameters used for hydrostatic constraints.}\label{tab:hydro}
 \begin{tabular*}{\tblwidth}{@{} Lp{12cm} @{}}
 \toprule
@@ -233,7 +233,7 @@ The trim has a lower and upper limits \eqref{trimLimits}, and there is an upper 
 \subsubsection{Metacentric height and lashing constraints}
 The metacentric height (GM) of a vessel is a measure relating to the stability of the vessel against overturning, and it is therefore relevant to have this measure within given limits. Further, GM affects other factors of stowing the vessel, e.g. lashing, where {higher} values of GM means that less cargo can be securely stowed with lashing equipment. In the following we describe the GM-related constraints in the $\mi{SCM}^\ttt{v}$. The variables and parameters used to describe these are summarized in Table~\ref{tab:gm}.
 
-\begin{table}[width=.9\linewidth,cols=2,pos=h]
+\begin{table}[width=.9\linewidth,cols=2,pos=htbp]
 \caption{Sets, variables and parameters used to describe GM and lashing constraints.}\label{tab:gm}
 \begin{tabular*}{\tblwidth}{@{} Lp{11.5cm} @{}}
 \toprule
@@ -286,7 +286,7 @@ For the GM-dimension, the convex combination results in \eqref{convexGM1} below.
 +\lambda^{\texttt{gm}+}_u\left(\begin{smallmatrix}0\\0\\L^{\texttt{gm}+}\end{smallmatrix}\right)$
 }
 
-\begin{figure}
+\begin{figure}[pos=htbp]
 	\centering
 		\includegraphics[scale=1]{figures/GMpolygon.pdf}
 	\caption{Polygon of legal combinations of container types. $\mathbf{x}$ is a convex combination of the shown vectors.}
@@ -308,7 +308,7 @@ The values $N^{t+}_{s}$ or $N^{t-}_{s}$ were found by use of a professional load
 \end{alignat} 
 
 \subsection{Standard Capacity Model for terminals}
-\begin{figure}
+\begin{figure}[pos=htbp]
 	\centering
 		\includegraphics[scale=1]{figures/terminalVars.pdf}
 	\caption{Variables used for terminal constraints}
@@ -322,7 +322,7 @@ The model includes overstowage and port stay constraints and will be described i
 
 The new variables and parameters used for the terminal constraints are summarized in Table~\ref{tab:portStay}. %\red{In red: has already been defined, but for vessel constraints.}
 
-\begin{table}[width=.9\linewidth,cols=2,pos=h]
+\begin{table}[width=.9\linewidth,cols=2,pos=htbp]
 \caption{Variables and parameters for terminal constraints.}\label{tab:portStay}
 \begin{tabular*}{\tblwidth}{@{} Lp{11.8cm} @{}}
 \toprule
@@ -351,7 +351,7 @@ $L^{\ttt{ps}+}\in\mb{R}$			& Maximal port stay for the port call.\\
 When cargo is unloaded at a port call of a port $p$, sometimes cargo in a subsection on deck (destined to another port than $p$) blocks some of the cargo below deck that needs to be discharged at $p$. That is, the cargo on deck \emph{overstowes} the cargo below deck. In that case, the cargo on deck also has to be discharged (and most likely re-loaded to the vessel), and this is unnecessary and costly operations. 
 Since our model only know the position of cargo in subsections of the vessel, we cannot make an exact calculation of the overstowage, however, we can make a conservative lower bound of the number of containers on deck that has to be discharged in order to discharge the needed cargo below deck. 
 
-\begin{figure}
+\begin{figure}[pos=htbp]
 	\centering
 		\includegraphics[scale=1]{figures/overstowage.pdf}
 	\caption{Only the shaded containers overstow containers below deck.}
@@ -395,7 +395,7 @@ Due to the width of the cranes, two cranes cannot operate at the same time on tw
 \subsection{Objective function}
 In this model we want to optimize the yield given by the containers being exported in the network from which we subtract the costs given by crane operations, costs associated with sailing long legs (legs between ports in different regions) with filled ballast tanks, and costs associated with storing containers at a yard. This is modelled in \eqref{obj}, where $Y^g$ is the yield associated with container group $g\in\mc{G}$, $D_e$ is the number of days between the port calls at the start and end of edge $e\in \mc{E}^\ttt{y}$, $\mc{E}^\ttt{long}\subset\mc{E}^\ttt{v}$ are \emph{long legs}, i.e. sailing edges between ports in two different regions, while $\mi{Co}^g_{e}$, $\mi{Co}^\ttt{ta}$, $\mi{Co}^{\ttt{mo}l}$, respectively are the costs associated with storing one container of container group $g\in\mc{G}$ at the yard of the port calls in the start and end of edge $e\in\mc{E}^\ttt{y}$ for one day, the costs of sailing with one ton of ballast on a long leg, and the cost of moving (loading or discharging) one container of length $l\in L$, respectively. These set and parameters are summarized in Table~\ref{tab:obj}. {We notice that the variable $z^{\texttt{mo}}_{lis}$ is the variable $z^\texttt{mo}_{ls}$ defined in \eqref{defMoves} for the port call at the implicitly given vessel-side node $i$.}
 
-\begin{table}[width=.9\linewidth,cols=2,pos=h]
+\begin{table}[width=.9\linewidth,cols=2,pos=htbp]
 \caption{set and parameters used in the objective function.}\label{tab:obj}
 \begin{tabular*}{\tblwidth}{@{} Lp{11.8cm} @{}}
 \toprule
