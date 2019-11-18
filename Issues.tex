@@ -3,7 +3,7 @@
 To find coefficients for the linearization of GM, we generate a number of cargo and ballast water distributions, which determines the lcg and vcg of the vassel. From these values, we can look up values of the draft, trim, and the GM of the vessel. %lcg is calculated, draft, trim and m are looked up in table given displacement and lcg. vcg is ``calculated'' from an assumption of where the vcg is. gm = m - vcg.
 We then make a multidimensional regression to determine the (best) linear function for the GM as a function of the values for the weight on deck, the weight below deck, the weight of ballast water, the draft and the trim. The GM of each of the cargo and ballast distributions plotted against the GM given by the resulting function is shown in Figure~\ref{fig:predictGM}. If the prediction were precise, all these points would lie on the diagonal line. The $R^2$ value is $0.977$, and as can also be seen from the figure, the GM prediction is very reasonable.
 
-\begin{figure}
+\begin{figure}[pos=htbp]
 	\centering
 		\includegraphics[scale=1.2]{figures/gnuPlotAll.pdf}
 	\caption{Prediction of GM from linear function}

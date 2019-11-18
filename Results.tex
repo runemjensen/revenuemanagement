@@ -36,7 +36,7 @@ To investigate the effects of the hydrostatic constraints, we have made two simi
 The results are shown in Table~\ref{tab:resultsCap} as  well as the overestimation (O.e.) of a model compared to a more constrained model. This overestimation is given in percentage of the objective value of the more constrained model and is shown in a column between the two models being compared.
 
 %
-\begin{table}[width=.95\linewidth,cols=10,pos=h]
+\begin{table}[width=.95\linewidth,cols=10,pos=htbp]
 \caption{Maximal number of containers of each type that can be placed on the vessel, when vessel capacity constraints and hydrostatic constraints are/are not included, respectively. The columns marked ``O.e.'' indicates the overestimation between the two models on either sides. }\label{tab:resultsCap}
 \begin{tabular*}{\tblwidth}{@{} r@{\hskip3pt}r@{\hskip3pt}r *{7}{R} @{}}
 \toprule
@@ -75,7 +75,7 @@ Looking at the results for the hydrostatic constraints, we see that the number o
 \subsubsection{GM and lashing constraints}
 For testing the impact of the GM-constraints (constraints \eqref{defGM}-\eqref{positiveLambdas}), a vessel have been filled with light ROB cargo \emph{below} deck as given in Table~\ref{tab:ROBGM}. The table shows the number of the given type of container in all bays below deck; there is no cargo above deck.\\
 
-\begin{table}[width=.9\linewidth,cols=13,pos=h]
+\begin{table}[width=.9\linewidth,cols=13,pos=htbp]
 \caption{ROB cargo for experiment with GM constraints. There is no cargo below deck.}\label{tab:ROBGM}
 \begin{tabular*}{\tblwidth}{@{}*{13}{R}@{}}
 \toprule
@@ -97,7 +97,7 @@ For the first GM-experiment, we then require that nothing is put above deck in b
 
 The results are shown in Table~\ref{tab:resultsGM}. The table only shows the results for the types for which the inclusion of the GM constraint makes a difference in the result.
 %Plain capacities gives same result as first column
-\begin{table}[width=.9\linewidth,cols=6,pos=h]
+\begin{table}[width=.9\linewidth,cols=6,pos=htbp]
 \caption{Maximal number of containers of each type that can be stowed above deck in bay 12.}% (when no other types are allowed).}
 \begin{tabular*}{\tblwidth}{@{} r@{\hskip3pt}r@{\hskip3pt}r@{} RRR@{}}
 \toprule
@@ -122,7 +122,7 @@ The results are shown in Table~\ref{tab:resultsGM2}. Only types for which there 
 %Caps alone same as first column
 %reefer-results left out; they are the same across the board. The capacities at the different locations are already so small, that gm won't matter in these cases. Although, maybe, if we could have more onboard thna just that one type (ie. is it possible to bring something else as well, it might make a difference. Hm, it seems to be the same thing. Did I make a mistake?
 
-\begin{table}[width=.9\linewidth,cols=9,pos=h]
+\begin{table}[width=.9\linewidth,cols=9,pos=htbp]
 \caption{Results when optimizing number of containers of each type with and without GM constraints. O.e. stands for overestimation.}% in percentage of the objective of the most constraining model.}
 \label{tab:resultsGM2}
 \begin{tabular*}{\tblwidth}{@{} r@{\hskip3pt}r@{\hskip3pt}r*{6}R @{}}%|*{5}{r}}
@@ -160,7 +160,7 @@ To show the potential impact of the different terminal constraints, we consider 
 \subsubsection{Overstowage}
 For investigating the effect of the overstowage constraints (constraint \eqref{overst}), we look at a vessel with the ROB cargo given in Table~\ref{tab:ROBOverst}. The vessel contains in total 4977 containers - mainly on deck - to be delivered (discharged) at the last port call $\mathfrak{C}$, and we require that 2000 containers (40' non-reefers of 19t) destined for the second port call $\mathfrak{B}$ needs to be loaded at the first port call $\mathfrak{A}$. The minimal needed moves to handle the ROB cargo and the exported cargo (loading and unloading) in this situation is therefore $4977 + 2\cdot 2000 = 8977$ moves.%; this is the case whether or not hydrostatic and gm constraints are included or not.  
 
-\begin{table}[width=.9\linewidth,cols=17,pos=h]
+\begin{table}[width=.9\linewidth,cols=17,pos=htbp]
 \caption{ROB cargo for overstowage experiment.}\label{tab:ROBOverst}
 \begin{tabular*}{\tblwidth}{@{} R *{8}C @{}}
 \toprule
@@ -188,7 +188,7 @@ We now look at the minimal number of moves required in a number of scenarios whe
 For each scenario, we consider a case where cargo can be freely restowed, and a case where cargo is forced to be placed in the section from which is was removed.
 Table~\ref{tab:resultsOverst} summarizes the results. %required moves for loading/unloading cargo, when overstowage is considered, in a case where the cargo being moved is forced back to where is was removed from (same section), and in a case where this is not required (i.e. it can be freely repositioned as our model is presented).
 
-\begin{table}[width=.9\linewidth,cols=5,pos=h]
+\begin{table}[width=.9\linewidth,cols=5,pos=htbp]
 \caption{Required moves and underestimation of moves when different sets of constraints are included.}\label{tab:resultsOverst}
 \begin{tabular*}{\tblwidth}{@{} LRRRR@{}}
 \toprule
@@ -210,7 +210,7 @@ As the results show, not including these overstowage constraints can lead to a c
 As before, we consider the network $\mathfrak{A} \rightarrow \mathfrak{B} \rightarrow \mathfrak{C}$. On board the vessel is ROB cargo to $\mathfrak{C}$ and $\mathfrak{A}$, respectively, as shown in Table~\ref{tab:ROBPS}. 
 The table shows the number of each type of container in each non-empty bay, on and below deck. As the ROB cargo shows, 300 containers need to be discharged (imported) at port call $\mathfrak{A}$, and all this cargo is placed in one bay only.
 
-\begin{table}[width=.9\linewidth,cols=9,pos=h]
+\begin{table}[width=.9\linewidth,cols=9,pos=htbp]
 \caption{ROB cargo for experiments with cranes and port stay.}\label{tab:ROBPS}
 \begin{tabular*}{\tblwidth}{@{} R *{8}C @{}}
 \toprule
@@ -234,7 +234,7 @@ At port call $\mathfrak{A}$ it is possible to load (export) cargo to port call $
 For this test we let the time window be 20h, and we have 7 cranes at our disposal. If the time window and number of cranes are reduced, the objective value will of course be further reduced, but these values are not unreasonable low. 
 The results can be seen in Table~\ref{tab:resultsPS}. 
 
-\begin{table}[width=.9\linewidth,cols=2,pos=h]
+\begin{table}[width=.9\linewidth,cols=2,pos=htbp]
 \caption{Maximal load/export of 40', 13t non-reefers.}\label{tab:resultsPS}
 \begin{threeparttable}
 \begin{tabular*}{\tblwidth}{@{} LR @{}}
@@ -266,7 +266,7 @@ The appendix gives a preview of which information can be extracted from the mode
 %In reality, the network of port calls continues beyond the last date in $\mc{D}$ since the vessels will continuously repeat their cyclic journeys. In order to avoid that our model greedily imports profitable cargo in the later port calls in the network (without regard to how (or if) it will be unloaded later) while simultaneous leaving cargo at the yards, we therefore introduce a \emph{horizon} $H\in\mc{D}$, that indicates the (end of) the time period in which we export cargo. Thus, $\mi{Ex}^{g+}_i=0$ for all yard-side nodes $i$ whose port call is later than $H$. At the same time, it will only be possible to export container groups with a deadline before the last day in $\mc{D}$, thus $\mc{G}=\mc{G}'$. The part of the network after the horizon only serves to empty the vessel, and since e.g. the hydrostatic constraints might not hold for a (half-) empty vessel, the hydrostatic constraints are only enforced for sailing edges before the deadline. In fact, we only enforce network constraints, vessel capacity constraints and the overstowage constraint on edges/port calls after the horizon. 
 The horizon is here set to 11.
 
-\begin{figure}
+\begin{figure}[pos=htbp]
 	\begin{center}
 		\includegraphics[scale = 0.54]{figures/Network2ServicesB.pdf}
 	\caption{Small network of port calls with two services.}
@@ -283,7 +283,7 @@ The appendix contains tables showing the content of the vessel (divided into sec
 
 Table~\ref{tab:ObjSmall} shows the objective value (the profit) when considering this network. As in the previous section we have added constraint groups one by one to see the impact of these. The abbreviations in the table is as follows: C: capacity constraints (\eqref{cap20}-\eqref{capDisp}), H: hydrostatic constraints (\eqref{defResF}-\eqref{draftLimits}), GML: GM limits (\eqref{defGM}-\eqref{minGM}), L: lashing constraints (\eqref{convexGM1}-\eqref{positiveLambdas}), O: Overstowage constraint (\eqref{overst}), MM: max moves constraints (\eqref{defMoves}-\eqref{maxPs}), and LC: long crane constraints (\eqref{longCrane}-\eqref{longCrane1Bay}). All experiments include the network flow constraint (\eqref{OnOff}-\eqref{sinks}).
 
-\begin{table}[width=.9\linewidth,cols=2,pos=h]
+\begin{table}[width=.9\linewidth,cols=2,pos=htbp]
 \caption{Profit for small network with various constraints included}\label{tab:ObjSmall}
 \begin{tabular*}{\tblwidth}{@{} LR @{}}
 \toprule
@@ -307,7 +307,7 @@ C+H+GML+L+O+MM+LC (full $\mi{SCM}^\ttt{v}$ and full $\mi{SCM}^\ttt{t}$)
 \red{Explanation of the results in the table}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Scaling results - Full-scale network}
-\begin{figure}
+\begin{figure}[pos=htbp]
 	\centering
 		\includegraphics{figures/fewerBW.pdf}
 	\caption{Vessels transporting cargo in a network from Asia to Europe within a set period of time.}
@@ -343,7 +343,7 @@ For our experiments, we first considered a case where only the three vessels emp
 
 Table~\ref{tab:BigObj} shows the found objective values for each of these experiments. Besides the objective values, the table also shows the {difference (overestimation) in percentage of the lower objective value to the higher objective value}. As the results show, the overestimation of the simple model compared to the most accurate model ($|S|=26$) is approximately 20\% except in the case where we only consider the first service. \red{Maybe the reason is that there is not that much chance/option/possibility for taking advantage of the whole network to rearrange cargo}. In this case, the overestimation is only app. 9\%. The results also show, that although more accuracy is gained from a higher number of sections, the largest difference lies  (maybe not surprisingly) in dividing the vessel at all, i.e. between using the simple model and dividing the vessel into 4 sections.  
 
-\begin{table}[width=.9\linewidth,cols=8,pos=h]
+\begin{table}[width=.9\linewidth,cols=8,pos=htbp]
 \caption{Objective values ($10^7$\$)}\label{tab:BigObj}
 \begin{tabular*}{\tblwidth}{@{} LR *{6}{R} @{}}
 \toprule
@@ -369,7 +369,7 @@ Table~\ref{tab:BigObj} shows the found objective values for each of these experi
 
 Table~\ref{tab:BigSize2} and Table~\ref{tab:BigSize} show the size of the underlying time-space graph (as in Figure~\ref{fig:timespace}) and the size of the produced LPs (after cplex' preprocessing), and Table~\ref{tab:BigTime} shows the solution time (in seconds, ticks and iterations). Each experiment is only solved once. As expected, the size and time to solve increases the more services are added, and the more horizontal sections are considered. The only exceptions are for one service, where the time falls for 26 section compared to 20 sections, and the number of iterations with 3 services that falls from 20 to 26 sections. The important thing to notice here, however, is that even the full network with most accuracy finishes within reasonable time (23 minutes). Using only 4 sections (for the full network) finishes within 7 minutes, which still saves us an overestimation of 17\%.
 
-\begin{table}[width=.9\linewidth,cols=4,pos=h]
+\begin{table}[width=.9\linewidth,cols=4,pos=htbp]
 \caption{Size of time-space networks.}\label{tab:BigSize2}
 \begin{tabular*}{\tblwidth}{@{} LRRR @{} }
 \toprule
@@ -385,7 +385,7 @@ $R_1$ - $R_6$ & 296 & 313 &1409\\
 \end{tabular*}
 \end{table}
 
-\begin{table}[width=.9\linewidth,cols=11,pos=h]
+\begin{table}[width=.9\linewidth,cols=11,pos=htbp]
 \caption{Size (rows/column/non-zeros) of preprocessed LPs.}\label{tab:BigSize}
 \begin{tabular*}{\tblwidth}{@{} RR *{2}{R@{\;/\hspace{-2mm}}R@{\;/\hspace{-2mm}}R@{$\quad$}} *{1}{R@{\;/\hspace{-2mm}}R@{\;/\hspace{-2mm}}R} @{}}
 \toprule
@@ -414,7 +414,7 @@ $R_1$ - $R_6$ & 296 & 313 &1409\\
 \end{tabular*}
 \end{table}
 
-\begin{table}[width=.9\linewidth,cols=11,pos=h]
+\begin{table}[width=.9\linewidth,cols=11,pos=htbp]
 \caption{Time (seconds (iterations/ticks))}\label{tab:BigTime}
 \begin{tabular*}{\tblwidth}{@{} RR *{2}{R@{\;(\hspace{-5mm}}R@{\;/\hspace{-5mm}}R@{\;)$\quad$}} *{1}{R@{\;(\hspace{-5mm}}R@{\;/\hspace{-5mm}}R@{\;)}} @{}}
 \toprule

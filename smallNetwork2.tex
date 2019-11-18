@@ -5,7 +5,7 @@ We consider the network of port calls made by two vessels that is shown in Figur
   
 The considered container groups are listed in Table~\ref{tab:groupIDs} together with an ID (used for brevity in tables to follow). The container groups are listed with a length, a weight class, its reefer property, its destination POD, the deadline (date), and a rate. Notice that not all container types (combinations of length, weight, and reefer-property) are present. As explained in Section~\ref{sec:smallNetwork}, some container groups are to be delievered later than the last day in the network, which is noted as ``later'' in this table. 
 
-\begin{table}[width=.9\linewidth,cols=23,pos=h]
+\begin{table}[width=.9\linewidth,cols=23,pos=htbp]
 \caption{ID of used container groups.}\label{tab:groupIDs}
 \begin{scriptsize}
 \begin{tabular*}{\tblwidth}{@{} *{2}{ R@{\hspace{2mm}} *{5}{R@{\hskip3pt}}RC@{\hspace{7mm}}} R@{\hspace {2mm}} *{5}{R@{\hskip3pt}}R @{}}
@@ -43,7 +43,7 @@ The considered container groups are listed in Table~\ref{tab:groupIDs} together 
 
 Table~\ref{tab:loadLists} summarizes the groups that are available to import at each port call. Each group has a maximal import of 1000, and the groups that are underlined have a minimal/required import of 100 containers.
   
-\begin{table}[width=.9\linewidth,cols=2,pos=h]
+\begin{table}[width=.9\linewidth,cols=2,pos=htbp]
 \begin{scriptsize}
 \begin{tabular*}{\tblwidth}{@{} RL @{}}
 \toprule
@@ -67,7 +67,7 @@ The vessel is divided into 6 sections.
 Table~\ref{tab:smallNetLegs} below shows what is on the two vessels ($V_1$ and $V_2$) on their journeys (within the horizon). For each leg, the content of the 6 sections, on deck (o) and below deck (b), is given in terms of the number of containers of each type of container that is on board the vessel. Likewise, the content of the tanks is given, as well as the total TEU-usage, the total displacement, trim, draft, and the GM. The legs indicated with no starting port call display the ROB on board the vessels when they enter the network.
 
 \addtolength{\tabcolsep}{-5pt}   
-\begin{table}[width=0.9\linewidth,cols=19,pos=h]
+\begin{table}[width=0.9\linewidth,cols=19,pos=htbp]
 \caption{Key numbers for sailing edges.\label{tab:smallNetLegs}}
 \begin{scriptsize}
 \begin{tabular*}{\tblwidth}{@{} r@{\hspace{2mm}}r@{\hspace{2mm}} R@{\hspace{-2mm}}RC R@{\hspace{-2mm}}RC R@{\hspace{-2mm}}RC R@{\hspace{-2mm}}RC R@{\hspace{-2mm}}RC R@{\hspace{-2mm}}R @{}}
@@ -274,7 +274,7 @@ The next table (Table~\ref{tab:smallNetPortCalls}) shows the actions taking plac
 
 %\newgeometry{inner=1cm,outer= 1cm,bottom=1.5cm, top=1.5cm}
 \begin{landscape}
-\begin{table}[width=1.0\linewidth,cols=40,pos=h]
+\begin{table}[width=1.0\linewidth,cols=40,pos=htbp]
 \caption{Actions at port calls.}\label{tab:smallNetPortCalls}
 \begin{tiny}
 %\begin{tabular}{r|r@{\hskip3pt}r@{\hskip3pt}r@{\hskip3pt}r|*{6}{r@{\hskip3pt}r@{\hskip3pt}r@{\hskip3pt}r|}r@{\hskip3pt}r|}
