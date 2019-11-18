@@ -29,14 +29,14 @@ and the \emph{yard edges} $\mc{E}^{\ttt{y}}$ between a yard-side node and anothe
 %$\mc{E}^{\ttt{y}}$, % =\set{(i,j)\in \mc{E}}{i,j\in \mc{N}^\ttt{y}\cup I^\ttt{y}\cup O^\ttt{y}\cup I^\ttt{x}\cup O^\ttt{x}}$.
 see Figure~\ref{fig:flow}.
 
-Each vessel $v\in\mc{V}$ is divided into a number of \emph{sections}, and each section is divided into a \emph{subsection on deck} and a \emph{subsection below deck}, see Figure~\ref{fig:vessel}. We let $\mc{S}_v$ and $\mc{U}_v$ denote the set of sections and the set of all subsections, respectively, of the vessel $v\in \mc{V}$.
+Each vessel $v\in\mc{V}$ is divided into a number of \emph{sections}, and each section is divided into a \emph{subsection on deck} and a \emph{subsection below deck}, see Figure~\ref{fig:vesselA}. We let $\mc{S}_v$ and $\mc{U}_v$ denote the set of sections and the set of all subsections, respectively, of the vessel $v\in \mc{V}$.
 Cargo can be stowed in most (sub)sections, though, some sections might not contain any stowage area. Further, each section has ballast tanks available that can be filled with water to help distribute weight through out the vessel to keep it in hydrostatic balance.
 
-\begin{figure}[pos=htbp]
-	\centering
-		\includegraphics[scale = 1.2]{figures/vessel2.pdf}
-		\caption{A section of a vessel and its subsections on and below deck.}  \label{fig:vessel}
-\end{figure}
+%\begin{figure}[pos=htbp]
+%	\centering
+%		\includegraphics[scale = 1.2]{figures/vessel2.pdf}
+%		\caption{A section of a vessel and its subsections on and below deck.}  \label{fig:vessel}
+%\end{figure}
 
 The cargo is divided into different \emph{container groups}, the set of which is denoted $\mc{G}$. Each group $g\in \mc{G}$ of containers has a type (that is, a length, a weight, and a reefer-property), a port of discharge, a deadline (a delivery date), and a yield. Some of the container groups have a deadline later than the last date in $\mc{D}$, while the remaining container groups, $\mc{G}'$, have a deadline in $\mc{D}$. Containers of a container group $g\in\mc{G}'$ must be delivered at the right destination if it is transported, and in this case, $N^g \in \mc{N}^\ttt{y}$ denotes the yard-side node of $g$'s destination port call.  
 
@@ -231,7 +231,7 @@ The trim has a lower and upper limits \eqref{trimLimits}, and there is an upper 
 \end{alignat}
 
 \subsubsection{Metacentric height and lashing constraints}
-The metacentric height (GM) of a vessel is a measure relating to the stability of the vessel against overturning, and it is therefore relevant to have this measure within given limits. Further, GM affects other factors of stowing the vessel, e.g. lashing, where {higher} values of GM means that less cargo can be securely stowed with lashing equipment. In the following we describe the GM-related constraints in the $\mi{SCM}^\ttt{v}$. The variables and parameters used to describe these are summarized in Table~\ref{tab:gm}.
+As mentioned/described, the GM is a measure relating to the stability of the vessel and also has an impact on the amount of cargo that can be lashes securely on deck. In the following we describe the GM-related constraints in the $\mi{SCM}^\ttt{v}$. The variables and parameters used to describe these are summarized in Table~\ref{tab:gm}.
 
 \begin{table}[width=.9\linewidth,cols=2,pos=htbp]
 \caption{Sets, variables and parameters used to describe GM and lashing constraints.}\label{tab:gm}
