@@ -5,7 +5,7 @@ The vessels' journeys can be illustrated in a network of \emph{port calls} as in
 
 \begin{figure}[pos=htbp]
 	\centering
-		\includegraphics[scale = 1.3]{figures/netwBW2.pdf}
+		\includegraphics{figures/netwBW3.pdf}
 		\caption{A network of port calls showing four vessels sailing on routes between seven ports in two different regions.}  \label{fig:timespace}
 \end{figure}
 
@@ -17,7 +17,7 @@ Besides these nodes, $\mc{N}$ is comprised of the sources $I^\ttt{x}$, $I^\ttt{p
 
 \begin{figure}[pos=htbp]
 	\centering
-		\includegraphics[scale = 1]{figures/fullFlow.pdf}
+		\includegraphics{figures/fullFlow2.pdf}
 		\caption{Full flow network.}  \label{fig:flow}
 \end{figure}
 
@@ -288,10 +288,18 @@ For the GM-dimension, the convex combination results in \eqref{convexGM1} below.
 
 \begin{figure}[pos=htbp]
 	\centering
-		\includegraphics[scale=1]{figures/GMpolygon.pdf}
-	\caption{Polygon of legal combinations of container types. $\mathbf{x}$ is a convex combination of the shown vectors.}
-%	\usebox{\smlmat}
-	\label{fig:GMpolygon}
+%	\begin{minipage}{.5\textwidth}		
+%		\centering
+		\includegraphics{figures/GMpolygon.pdf}
+		\caption{Polygon of legal combinations of container types. A point in the polygon is a convex combination of the shown vectors.}
+		\label{fig:GMpolygon}
+%	\end{minipage}%
+%	\begin{minipage}{.5\textwidth}
+%	\centering
+%		\includegraphics{figures/terminalVars.pdf}
+%		\caption{Variables used for terminal constraints.}
+%		\label{fig:terminalVars}
+%	\end{minipage}
 \end{figure}
 
 The values $N^{t+}_{s}$ or $N^{t-}_{s}$ were found by use of a professional loading computer as described in Section~\ref{sec:implementation}. This section also includes a discussion of the validity of this approach. 
@@ -310,9 +318,18 @@ The values $N^{t+}_{s}$ or $N^{t-}_{s}$ were found by use of a professional load
 \subsection{Standard Capacity Model for terminals}
 \begin{figure}[pos=htbp]
 	\centering
-		\includegraphics[scale=1]{figures/terminalVars.pdf}
-	\caption{Variables used for terminal constraints}
-	\label{fig:terminalVars}
+	\begin{minipage}{.42\textwidth}
+	\centering
+		\includegraphics{figures/terminalVars.pdf}
+		\caption{Variables used for terminal constraints.}
+		\label{fig:terminalVars}
+	\end{minipage}%
+	\begin{minipage}{.58\textwidth}
+	\centering
+		\includegraphics[scale=1]{figures/overstowage.pdf}
+		\caption{Only the shaded containers overstow containers below deck.}
+	\label{fig:overstow}
+	\end{minipage}
 \end{figure}
 
 In constraint \eqref{terminalCon} of Section~\ref{sec:flow}, $\mi{SCM}^\ttt{t}_{i}$ is a model restricting the actions taking place at the port call associated with the vessel-side node $i\in \mc{N}^\ttt{v}$.
@@ -351,12 +368,12 @@ $L^{\ttt{ps}+}\in\mb{R}$			& Maximal port stay for the port call.\\
 When cargo is unloaded at a port call of a port $p$, sometimes cargo in a subsection on deck (destined to another port than $p$) blocks some of the cargo below deck that needs to be discharged at $p$. That is, the cargo on deck \emph{overstowes} the cargo below deck. In that case, the cargo on deck also has to be discharged (and most likely re-loaded to the vessel), and this is unnecessary and costly operations. 
 Since our model only know the position of cargo in subsections of the vessel, we cannot make an exact calculation of the overstowage, however, we can make a conservative lower bound of the number of containers on deck that has to be discharged in order to discharge the needed cargo below deck. 
 
-\begin{figure}[pos=htbp]
-	\centering
-		\includegraphics[scale=1]{figures/overstowage.pdf}
-	\caption{Only the shaded containers overstow containers below deck.}
-	\label{fig:overstow}
-\end{figure}
+%\begin{figure}[pos=htbp]
+%	\centering
+%		\includegraphics[scale=1]{figures/overstowage.pdf}
+%	\caption{Only the shaded containers overstow containers below deck.}
+%	\label{fig:overstow}
+%\end{figure}
 
 In the best case scenario (w.r.t. overstowage), in a section $s$ the cargo below deck that will be unloaded at $p$ fills stowage space below deck from one side (e.g. starboard) while the cargo on deck fills the stowage space on deck from the other side (port side). Disregarding the hatch covers, we then only need to unload the ``overlapping'' part of the cargo above deck (see Figure~\ref{fig:overstow}).
 In the best case, this cargo needs to be unloaded and imported at the port.  

@@ -32,27 +32,29 @@ On the other hand, GM affects other factors of stowing the vessel, e.g. lashing,
 
 \begin{figure}
 	\centering
-		\includegraphics[scale=0.7]{figures/GM.pdf}
-	\caption{The metacentric heigh GM of a heeling vessel.}
-	\label{fig:GMA}
+	\begin{minipage}{.5\textwidth}
+  		\centering
+  		\includegraphics{figures/GM.pdf}
+  		\caption{The metacentric heigh (GM) of a heeling vessel.}
+  		\label{fig:GMA}
+	\end{minipage}%
+	\begin{minipage}{.5\textwidth}
+  		\centering
+  		\includegraphics{figures/cranes.pdf}
+  		\caption{Two cranes working on a part of a vessel.}
+  		\label{fig:cranes}
+	\end{minipage}
 \end{figure}
 
 The circumstances at the ports where the cargo has to be loaded and discharged also has to be considered. 
 The main concern here is the crane movements required to stow the vessel as planned/wanted, since crane movements both take time and have a cost associated. 
 A crane operates at a bay at a time, and it takes time for it to move from one bay to another. Cranes cannot pass each other (i.e., they have to stay in the same order) and due to their size/width, they cannot work at adjacent bays (see Figure~\ref{fig:cranes}). The cranes operating on the vessel operate at the same time, but all crane movements have to be done within the time that the vessel is allotted at the port (or alternatively: the cost measured in time has to be considered, if time is unlimited). Thus, the crane taking the longest time should also be finished within the time frame.
 
-\begin{figure}
-	\centering
-		\includegraphics[scale=0.8]{figures/cranes.pdf}
-	\caption{Two cranes working on a part of the vessel}
-	\label{fig:cranes}
-\end{figure}
-
 Discharging any container cannot always be done with just one simple discharge move. When a container is discharged, there can be no containers on top of it, and if it is below deck, there can be no containers on the hatch cover above it (see Figure~\ref{fig:overstowA}). Thus, if a container below deck is topped by containers in this was \emph{that needs to stay on board}, then these containers have to be first unloaded and then loaded again. This is very expensive and time consuming, which should be reflected in the model. 
 
 \begin{figure}
 	\centering
-		\includegraphics[scale=0.9]{figures/overstow.pdf}
+		\includegraphics{figures/overstow.pdf}
 	\caption{To move the black container, the crossed out cells must be empty (hatch covers exaggerated).}
 	\label{fig:overstowA}
 \end{figure}
