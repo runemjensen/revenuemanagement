@@ -1,1 +1,29 @@
 \section{Introduction}
+
+Revenue Management (RM) is about providing customers with the right product at the right time and price. As an example, consider an airline operating a plane with 100 seats offering 50\% student discount. If the airline experiences that it can sell 80 tickets at full price, it should allocate 80 seats to these passengers and only offer them to students in the last minute if the allocation cannot be filled.
+
+Before the liner shipping conferences were outlawed in Europe in 2008, the lack of price differentiation gave carriers little reason to introduce RM methods. Since then it has been recognized that the industry has the core characteristics required for RM systems \cite{Hellerman06}: perishability of the product offered, relatively fixed capacity, low marginal sales cost and high marginal capacity change cost, ability to segment markets, sale or booking in advance, stochastic demand, and forecastable demand. This has lead to a growing body of literature on RM methods for liner shipping (see Section~\ref{sec:relatedwork}) and deployment of RM systems in the industry.
+
+A limitation of all academic and industrial contributions that we are aware of, however, is that they use simple models of the operational capacity of the service networks. The main challenge is to model the cargo capacity of a vessel. A container slot on a cellular container vessel is different from a seat on an air plane or a hotel room. While a plane seat or a hotel room normally always is available if it is unused, a container slot can still be unavailable in this case. The reason is that a seaworthy vessel must comply with many interacting stowage rules and safety requirements. For instance, slots may be lost because the weight distribution otherwise would cause too high stress forces, insufficient transversal stability or too high draft. Moreover, slots in a single stack can be lost if the maximum weight of the stack or the maximum forces in the lashing gear otherwise are exceeded. In addition to vessel requirements, the operational capacity is affected by terminal constraints. A major challenge is to stay within the time window of the terminal call. This requires that the container moves are distributed along the vessel such that a sufficient number of quay cranes can work in parallel. Since the cranes can only access containers from the top of the stacks, it is also important to avoid that containers for later ports block containers to be discharged below them. Such blocking containers must be restowed which take time and is costly.
+
+1) revenue mangement methods relevant
+2) no academic methods consider stowage (see Section related work)
+3) indusry uses simple fixed capcity and guaranteed intake
+4) previous work Alberto thesis show 15\% off 
+4) In this paper: Include operational constraints into typical flow models use in the literature 
+   - We extend the SCM {\em standard capacity model} ICCL
+5) List of contributions
+   a) introduce it on a network flow model over a given time horizon. 
+   b) extend the basic vessel mode 
+      - GM from hydrostatic table machine learning
+      - Polyhedron lashing
+      - overstow
+   c) extend with a terminal model
+      - Crane utilization
+      - Restowage
+      - Maximum port stay
+    
+6) results show: hs impact is scalable.
+
+7) the remainder of the article is organized as follows: ..
+
