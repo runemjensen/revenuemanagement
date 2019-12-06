@@ -1,4 +1,4 @@
-\section{Liner Shipping Operations}
+\section{Liner Shipping Operations}\label{sec:stowage}
 \subsection{Cargo and vessel}
 Unsurprisingly, the cargo for container vessels consist for the most part of containers in standardized sizes. The most common sizes are 20' or 40' long containers with a width of 8' and a height of 8'6''. Containers with a length of 45', and containers with a height of 9'8'' also exists but are less common. Of these commonly sized container, some -- known as \emph{reefers} -- are used to transport goods that requires refrigeration, and these containers needs to be powered under transport.  The weight of the containers varies, but the cargo/containers are not uncommonly divided into weight classes denoted by an average weigth (for example, 5t, 13t, etc.).
 
@@ -30,21 +30,58 @@ Though the number of containers is within the nominal capacities and the weight 
 The metacentric height (GM) of a vessel is a measure relating to the transversal stability of the vessel against overturning. It is the distance between the center of gravity (G) of the vessel and the \emph{metacenter} M. M is found on a heeling vessel as the intersection of the centerline of the (transversally symmetric) vessel and a vertical line through the center of buoyancy (B) (see Figure~\ref{fig:GMA}). The higher GM is, the higher the transversal stability is (\cite{JPAV18}), and to avoid capsizing, it is therefore relevant to have this measure within given limits. 
 On the other hand, GM affects other factors of stowing the vessel, e.g. lashing, where {higher} values of GM causes high acceleration forces \red{when the vessel is "correcting"}, meaning that less cargo can be securely stowed with lashing equipment. 
 
-\begin{figure}
+\begin{figure}[pos=htbp]
 	\centering
-	\begin{minipage}{.5\textwidth}
-  		\centering
+	\begin{minipage}{.32\textwidth}
+  %		\centering
   		\includegraphics{figures/GM.pdf}
-  		\caption{The metacentric heigh (GM) of a heeling vessel.}
+  		\caption{The metacentric heigh\\ (GM) of a heeling vessel.}
   		\label{fig:GMA}
 	\end{minipage}%
-	\begin{minipage}{.5\textwidth}
-  		\centering
+	\begin{minipage}{.34\textwidth}
+  	%	\centering
   		\includegraphics{figures/cranes.pdf}
-  		\caption{Two cranes working on a part of a vessel.}
+  		\caption{Two cranes working on a\\ part of a vessel.}
   		\label{fig:cranes}
+	\end{minipage}%
+	\begin{minipage}{.34\textwidth}
+  	%	\centering
+  		\includegraphics{figures/overstow.pdf}
+		\caption{To move the black container,\\ the crossed out cells must be empty.}
+  		\label{fig:overstowA}
 	\end{minipage}
 \end{figure}
+
+%\begin{figure}[pos=htbp]
+%\centering
+%\begin{subfigure}[center]{.33\textwidth}
+%  \centering
+%  \includegraphics{figures/GM.pdf}
+%  \caption{}
+%  \label{fig:sub1}
+%\end{subfigure}%
+%\begin{subfigure}{.33\textwidth}
+%  \centering
+%  \includegraphics{figures/cranes.pdf}
+%  \caption{}
+%  \label{fig:sub2}
+%\end{subfigure}%
+%\begin{subfigure}{.33\textwidth}
+%  \centering
+%  \includegraphics{figures/overstow.pdf}
+%  \caption{}
+%  \label{fig:sub3}
+%\end{subfigure}
+%\caption{\subref{fig:sub1} The metacentric heigh (GM) of a heeling vessel. \subref{fig:sub2} Two cranes working on a part of a vessel. \subref{fig:sub3} To move the black container, the crossed out cells must be empty.}
+%\label{fig:test}
+%\end{figure}
+%
+%\begin{figure}[pos=htbp]
+%	\centering
+%	\includegraphics{figures/threefigs.pdf}
+%	\caption{(a) The metacentric heigh (GM) of a heeling vessel. (b) Two cranes working on a part of a vessel. (c) To move the black container, the crossed out cells must be empty.}
+%	\label{fig:GMA}
+%\end{figure}
 
 The circumstances at the ports where the cargo has to be loaded and discharged also has to be considered. 
 The main concern here is the crane movements required to stow the vessel as planned/wanted, since crane movements both take time and have a cost associated. 
@@ -52,11 +89,11 @@ A crane operates at a bay at a time, and it takes time for it to move from one b
 
 Discharging any container cannot always be done with just one simple discharge move. When a container is discharged, there can be no containers on top of it, and if it is below deck, there can be no containers on the hatch cover above it (see Figure~\ref{fig:overstowA}). Thus, if a container below deck is topped by containers in this was \emph{that needs to stay on board}, then these containers have to be first unloaded and then loaded again. This is very expensive and time consuming, which should be reflected in the model. 
 
-\begin{figure}
-	\centering
-		\includegraphics{figures/overstow.pdf}
-	\caption{To move the black container, the crossed out cells must be empty (hatch covers exaggerated).}
-	\label{fig:overstowA}
-\end{figure}
+%\begin{figure}
+%	\centering
+%		\includegraphics{figures/overstow.pdf}
+%	\caption{To move the black container, the crossed out cells must be empty.}
+%	\label{fig:overstowB}
+%\end{figure}
 
 When stowing, empty containers should be regarded as any other cargo, in the sense that they take up capacity and contribute to stress forces etc., and the moves that they give rise to should also be considered.    

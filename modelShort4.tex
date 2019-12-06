@@ -286,21 +286,35 @@ For the GM-dimension, the convex combination results in \eqref{convexGM1} below.
 +\lambda^{\texttt{gm}+}_u\left(\begin{smallmatrix}0\\0\\L^{\texttt{gm}+}\end{smallmatrix}\right)$
 }
 
+
 \begin{figure}[pos=htbp]
 	\centering
-%	\begin{minipage}{.5\textwidth}		
-%		\centering
-		\includegraphics{figures/GMpolygon.pdf}
-		\caption{Polygon of legal combinations of container types. A point in the polygon is a convex combination of the shown vectors.}
+	\begin{minipage}{.375\textwidth}
+  %		\centering
+  		\includegraphics{figures/GMpolygon.pdf}
+		\caption{Polygon of legal combinations\\ of container types.}% A point in the polygon\\ is a convex combination of the shown vectors.}
 		\label{fig:GMpolygon}
-%	\end{minipage}%
-%	\begin{minipage}{.5\textwidth}
+	\end{minipage}%
+	\begin{minipage}{.275\textwidth}
 %	\centering
-%		\includegraphics{figures/terminalVars.pdf}
-%		\caption{Variables used for terminal constraints.}
-%		\label{fig:terminalVars}
-%	\end{minipage}
+		\includegraphics{figures/terminalVars.pdf}
+		\caption{Variables used for\\terminal constraints.}
+		\label{fig:terminalVars}
+	\end{minipage}%
+	\begin{minipage}{.35\textwidth}
+	\centering
+		\includegraphics{figures/overstowage.pdf}
+		\caption{Only the shaded containers\\overstow containers below deck.}
+	\label{fig:overstow}
+	\end{minipage}
 \end{figure}
+
+%\begin{figure}[pos=htbp]
+%	\centering
+%	\includegraphics{figures/GMpolygon.pdf}
+%		\caption{Polygon of legal combinations of container types. A point in the polygon is a convex combination of the shown vectors.}
+%		\label{fig:GMpolygon}
+%%\end{figure}
 
 The values $N^{t+}_{s}$ or $N^{t-}_{s}$ were found by use of a professional loading computer as described in Section~\ref{sec:implementation}. This section also includes a discussion of the validity of this approach. 
 
@@ -316,21 +330,21 @@ The values $N^{t+}_{s}$ or $N^{t-}_{s}$ were found by use of a professional load
 \end{alignat} 
 
 \subsection{Standard Capacity Model for terminals}
-\begin{figure}[pos=htbp]
-	\centering
-	\begin{minipage}{.42\textwidth}
-	\centering
-		\includegraphics{figures/terminalVars.pdf}
-		\caption{Variables used for terminal constraints.}
-		\label{fig:terminalVars}
-	\end{minipage}%
-	\begin{minipage}{.58\textwidth}
-	\centering
-		\includegraphics[scale=1]{figures/overstowage.pdf}
-		\caption{Only the shaded containers overstow containers below deck.}
-	\label{fig:overstow}
-	\end{minipage}
-\end{figure}
+%\begin{figure}[pos=htbp]
+%	\centering
+%	\begin{minipage}{.42\textwidth}
+%	\centering
+%		\includegraphics{figures/terminalVars.pdf}
+%		\caption{Variables used for terminal constraints.}
+%		\label{fig:terminalVars}
+%	\end{minipage}%
+%	\begin{minipage}{.58\textwidth}
+%	\centering
+%		\includegraphics[scale=1]{figures/overstowage.pdf}
+%		\caption{Only the shaded containers overstow containers below deck.}
+%	\label{fig:overstow}
+%	\end{minipage}
+%\end{figure}
 
 In constraint \eqref{terminalCon} of Section~\ref{sec:flow}, $\mi{SCM}^\ttt{t}_{i}$ is a model restricting the actions taking place at the port call associated with the vessel-side node $i\in \mc{N}^\ttt{v}$.
 The model includes overstowage and port stay constraints and will be described in the following. For describing the terminal constraints, we need variables describing what is on board the vessel upon arrival at the port call, as well as what is loaded and what is discharged, see Figure~\ref{fig:terminalVars}. The vessel in question is implicitly given.

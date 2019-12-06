@@ -10,6 +10,8 @@ Another concern related to RM is the re-distribution/repositioning of empty cont
 
 Though this line of work is focused on capacity management, it varies which types of constraints on the capacity is considered. The most common approach is to consider a subset of the constraints on the total volume (number of containers in TEU), total maximal weight of a vessel, and potentially the total number of reefer plugs available on the vessel (i.e., how many reefer containers, the vessel can carry).  Of the work mentioned in this section, all take volume capacity into consideration - if different sizes of containers are considered, then a TEU-limit is used. Further, a number of papers includes a weight limit (\citet{Bingzhou08, Zurheide15, Ting04, Xianzhi07, Feng08, Zurheide12, Wang15b, Lu10, Chang15, Wang19a, Feng07}), while a few considers reefer plugs (\citet{Zurheide15, Ting04, Zurheide12}, (\citet{Wang15b} - shown how to include in model but not used in experiments), \citet{Lu10}). Furthermore, \citet{Ting04} considers a maximal total number of 40' containers, and \citet{Wang19a} considers bunker fuel capacity. From a ``terminal capacity'' point of view, \citet{Wang15b} has restrictions on sailing speed and port time (in order for service time to add up) and \citet{Wang19a} considers a maximal sailing speed. In some of the work, the capacities mentioned are operational and can change per port or leg, since e.g. some capacity is reserved for contractual bookings or are shared with other companies or the displacement limit is different due to the depth of ports (\citet{Xianzhi07, Feng08, Zou08, Zurheide12, Chang15, Feng07}).
 
+The above mentioned features of the models in previous work are summarized in Table~\ref{tab:relatedWork} in chronological order. The table outline the part of the network considered (Services), whether transshipments/postponements (Tr.) and repositioning of empty containers (Em.) are considered, which capacities are taken into account (volume (V), weight (W), reefer plugs (RP)) and if these are operational. It shortly lists the different types of containers used in the models and experiments (if present). These varies from just one type, to unspecified but different types, to specific sizes used in industry and/or different segments (such as contractual and ad hoc).  Finally, the list also shortly mentions further relevant aspects of the models.
+The specific types is specified by a length (20'/40') and whether it is a refrigerated container or not (R/DC), see later in Section~\ref{sec:stowage}. Some 40' containers are higher than the standard (denoted 40HC/40HR depending on whether it is a reefer or not). \cite{Lu10} further considers empty 20' and 40' containers as well as 20' special containers (like open top), which in the table is denoted by 20E, 40E and 20S, respectively, though this is not a standard notation.   
 \afterpage{
 \begin{landscape}
 \begin{table}[width=0.95\linewidth,cols=7,pos=p]
@@ -18,55 +20,54 @@ Though this line of work is focused on capacity management, it varies which type
 \begin{threeparttable}
 \begin{tabular*}{\tblwidth}{@{} *{7}{L} @{}}
 \toprule
-Article				& Service				& Tr.		& Em.	 	& Capacities 	& Types 								& Other aspects of model \\
-&&&&&&\\
+Article				& Services				& Tr.		& Em.	 	& Capacities 	& Types 								& Other aspects of model \\
 \midrule
-\citet{Maragos94}	& Single 				& No 		& No		& V 			& Different service classes				& Booking request arrives before departure\\
-					&						& 			&			& 				& 										& with given probabilities\\
-\citet{Ting04}		& Single 				& No 		& Yes		& V, W, RP, 	& \{20DC, 20R, 40DC, 40R\} 				&\\
-					& (repeated)  			& 	 		& 			& max 40' cont. & $\times$\{loaded, empty\}				&\\
+\citet{Maragos94}	& Single 				& No 		& No		& V 			& Different service classes				& Dynamic model. Booking request arrives\\
+					&						& 			&			& 				& 										& before departure with given probabilities\\
+\citet{Ting04}		& Single 				& No 		& Yes		& V, W, RP, 	& \{20DC, 20R, 40DC, 40R\} 				& A more tactical focus\\
+					& (repeated)  			& 	 		& 			& max. 40' cont.& $\times$\{loaded, empty\}				& \\
 \citet{Lee07}		& Single-leg  			& No\tn{1}	& No		& V				& Contractual, ad hoc 					& Multiple decision periods before departure\\
-					& (repeated once)		& 	 		& 			& 				& 										&\\
-\citet{Demirag07}	& Single and multi 		& No 		& No		& V				& One type 								& [Decentralized capacity allocation]\\
+					& (repeated once)		& 	 		& 			& 				& 										& \\
+\citet{Demirag07}	& Single and multi 		& No 		& No		& V				& One type 								& Decentralized capacity allocation\\
 &&&&&&\\
-\citet{Xianzhi07}	& Multi 				& Yes		& Yes		& V, W			& Multi-type 							& Stochastic demand\\
-					&						&			&			&	Operational	& Loaded and empty 						&\\
-\citet{Feng07}		& Single 				& No 		& No		& V, W			& \{20DC, 40D, 40HC\} 					&\\
-					&	(Intra-Asia) 		& 			&			& Operational	& 										&\\
-\citet{Feng08}		& Single 				& No 		& No		& V, W			& \{20DC, 40DC\} 						&\\
-					&	(Intra-Asia) 		& 			&			& Operational	& 										&\\
-\citet{Bingzhou08}	& Single-leg 			& No 		& No\tn{2}	& V, W			& \{20DC, 20R, 40DC, 40R\}\tn{4}		& Booking request arrives before departure\\
-					&						& 			&			& 				& 										& with given probabilities\\
+\citet{Xianzhi07}	& Multi 				& Yes		& Yes		& V, W			& Multi-type, 							& Stochastic demand\\
+					&						&			&			&	Operational	& Loaded and empty 						& \\
+\citet{Feng07}		& Single 				& No 		& No		& V, W			& \{20DC, 40DC, 40HC\} 					& \\
+					& (Intra-Asia)	 		& 			&			& Operational	& 										& \\
+\citet{Feng08}		& Single 				& No 		& No		& V, W			& \{20DC, 40DC\} 						& \\
+					& (Intra-Asia)	 		& 			&			& Operational	& 										& \\
+\citet{Bingzhou08}	& Single-leg 			& No 		& No\tn{2}	& V, W			& \{20DC, 20R, 40DC, 40R\}				& Dynamic model. Booking request arrives\\
+					&						& 			&			& 				& 										& before departure with given probabilities\\
 \citet{Zou08}		& Single 				& No 		& Yes		& V				& Contractual, ad hoc, empty 			& Stochastic demand\\
-					& (repeated) 			& 			&			& Operational	& 										&\\
-\citet{Lu10}			& Single 				& No 		& Yes		& V, W, RP		& \{20DC, 40DC, 20R, 40R,			&\\
-					& (seasonal) 			& 			& 			& Operational W & 20E, 40E, 40HQ, 20S\}					&\\
-\citet{Song12}		& Multi 				&Yes\tn{3}	& Yes		& V       		& Laden, empty 							& Includes explicitly costs for load and \\
+					& (repeated) 			& 			&			& Operational	& 										& \\
+\citet{Lu10}		& Single 				& No 		& Yes		& V, W, RP		& \{20DC, 40DC, 20R, 40R,				& A more tactical focus\\
+					& (seasonal) 			& 			& 			& Operational W & 20E, 40E, 40HC, 20S\}					& \\
+\citet{Song12}		& Multi 				& Yes\tn{3}	& Yes		& V       		& Loaded, empty							& Includes explicit costs for load and\\
 					&						& 			&			& 				& 										& discharge, demand backlog, storing costs\\
-\citet{Zurheide12}	& Multi 				&Yes\tn{3}	& Yes		& V, W, RP		& \{20DC, 20R, 40DC, 40HC, 40R\} 		& Includes segments for containers and \\
-					&						&			&			& Operational	& $\times$\{loaded, empty\} (also leased \red{(?)})& leasing of containers \\
-					&						&			&			&				& Segments: \{normal, priority\}		&\\
-\citet{Zurheide15}	& Multi 				&Yes\tn{3}	& Yes		& V, W, RP		& \{20DC, 40DC, 40HC, 20R, 40HR\}		& Model used for booking acceptance \\
-					&						&			&			&	Operational	& $\times$\{full, empty\}				& strategies\\
-					&						&			&			&				&  Segments: \{standard, flex, express\}&\\
-\citet{Chang15}		& Single and multi 		& No 		& Yes		& V, W    		& \{20DC, 40DC, 40HQ\} 					&\\
-					& (Intra-Asia) 			& 			& 			& Operational	& 										&\\
-\citet{Wang15b}		& Multi 				& Yes 		& No\tn{2}	& V, W, RP\tn{2}& Multi-type with different weight,	 	& Incl. time for sailing, waiting and handling, \\
+\citet{Zurheide12}	& Multi 				& Yes\tn{3}	& Yes		& V, W, RP		& \{20DC, 20R, 40DC, 40HC, 40R\} 		& Includes segments for containers and\\
+					&						&			&			& Operational	& $\times$\{loaded, empty\} 			& leasing of containers\\
+					&						&			&			&				& Segments: \{normal, priority\}		& \\
+\citet{Zurheide15}	& Multi 				& Yes\tn{3}	& Yes		& V, W, RP		& \{20DC, 40DC, 40HC, 20R, 40HR\}		& Model used for booking acceptance\\
+					&						&			&			&	Operational	& $\times$\{loaded, empty\}				& strategies\\
+					&						&			&			&				&  Segments: \{standard, flex, express\}& \\
+\citet{Chang15}		& Single and multi 		& No 		& Yes		& V, W    		& \{20DC, 40DC, 40HC\} 					& Two levels: First maximize profit, then\\
+					& (Intra-Asia) 			& 			& 			& Operational	& 										& redistribute empty containers.\\
+\citet{Wang15b}		& Multi 				& Yes 		& No\tn{2}	& V, W, RP\tn{2}& Multi-type with different weight,	 	& Includes time for sailing, waiting and handling,\\
 					& (seasonal) 			&  			& 			& 				& size and rates. Empty containers\tn{2}& plus bunker fuel price and consumption\\
-\citet{Zhen17}		& Multi 				& Yes		& No		& V				& One type								& Uses model to compare and develop container\\
+\citet{Zhen17}		& Multi 				& Yes		& No		& V				& One type								& Model used to compare and develop container\\
 					&						&			&			&				&										& routing strategies under uncertain demands \\
-\citet{Wang19a}		& Single 				& No 		& No		& V, W,			& One type								& Incorporates speed and bunkering \\
-					&						&			&			& Bunker cap.	& 										& optimization \\
-\citet{Wang19b}		& Multi 				& No\tn{1}	& No		& V				& One type\tn{5}						& Using models for different RM strategies \\
+\citet{Wang19b}		& Multi 				& No\tn{1}	& No		& V				& One type\tn{4}						& Models used for different RM strategies \\
 					&						&			&			& 				&										& (overbooking and delivery-postponement)\\
+\citet{Wang19a}		& Single 				& No 		& No		& V, W,			& One type								& Incorporates speed and bunkering \\
+					&						&			&			& Bunker capacity& 										& optimization \\
 \bottomrule
 \end{tabular*}
 \begin{tablenotes}\scriptsize
-\item[1] Postponement possible (\citet{Lee07}: of contractual containers, \citet{Wang19b}: for a postponement strategy)
-\item[2] Modelled, not used in experiments. (\citet{Bingzhou08}: Empty containers are non-heavy containers which should have a cost. [Don’t think it is used])
-\item[3] Maximally two per booking (in experiments)
-\item[4] Tror, at der er mange mulige bookinger, hvor hver booking har en af de givne typer, og derudover en vaegt.
-\item[5] For postponement strategy: time-sensitive and time-insensitive segments.
+\item[1] Postponement possible (\citet{Lee07}: of contractual containers, \citet{Wang19b}: for the postponement strategy).
+\item[2] Modelling described, but not used in experiments. %(\citet{Bingzhou08}: Empty containers are non-heavy containers which should have a cost. [Don’t think it is used])
+\item[3] Maximally two per booking (in experiments).
+%\item[4] Tror, at der er mange mulige bookinger, hvor hver booking har en af de givne typer, og derudover en vaegt.
+\item[4] For postponement strategy: time-sensitive and time-insensitive segments.
 \end{tablenotes}
 \end{threeparttable}
 \end{footnotesize}
@@ -74,39 +75,38 @@ Article				& Service				& Tr.		& Em.	 	& Capacities 	& Types 								& Other asp
 \end{landscape}
 }
 
-\subsection{Overview}
-\citet{Maragos94}: dynamic ship capacity allocation for a liner shipping service with rates dependent on the time before departure at which the booking arrives. The task is to accept/reject bookings as they arrive to maximize the overall profit. 
-
-\citet{Lee07}: The goal is to decide whether a booking (either contractual or from the spot marked) should be accepted at given discrete time points before departure of a vessel.   
-
-\citet{Ting04}: Let the carrier allocate available space of a vessel to the different origin/destination-pairs to maximize the freight contribution (revenue) for the whole vessel (focus is more tactical than operational level). 
-
-\citet{Demirag07}: Presents models for letting the headquarter of an LS company find the best capacity allocation (and sales incentives) to each local sales agent on the routes with the objective to maximized revenue/improve overall performance.
-
-\citet{Xianzhi07}: How to allocate capacity on the vessels to cargo with maximal profit contribution when facing uncertain demands.
-
-\citet{Feng07}: Aims to fully utilize a vessel on a intra-Asian service (with many port calls) and maximize the operational profit of the vessel's voyage.
-
-\citet{Feng08}: [actually, the same] Maximize profit from an intra-Asian service by allocating slots to the different shipping agencies.
-
-\citet{Bingzhou08}: Makes a dynamic programming model where bookings arrive one at a time with a given probability before departure. The aim is to give the company an accept/reject strategy that will maximize the expected revenue over the whole booking period. [Capacity is two-dimensional].
-
-\citet{Zou08}: optimizes allocation of contractual, ad hoc containers, and empty containers when demands are stochastic.
-
-\citet{Lu10}: slot allocation model (tactical level) to satisfy estimated seasonal demand to maximize profit per round trip voyage.
-
-\citet{Song12}: investigate the problem of empty container repositioning and laden container routing at the operational level for a shipping network with multiple service routes, multiple deployed vessels, and multiple regular voyages.
-
-\citet{Zurheide12}: develops slot allocation model for determining booking limits for each specific container type and priority segment for a each path from origin to destination in the network.  
-
-\citet{Zurheide15}: compares the performance (wrt. revenue) of several [operational-level] booking acceptance strategies based on a model allocating space on vessels to incoming bookings. 
-
-\citet{Chang15}: has a two-level approach where first a model maximize operational profits for each intra-Asia service route individually while the empty containers resulting from this afterwards is redistributed in the whole network to minimize transportation cost.  
-
-\citet{Wang15b}: address jointly the tactical level decisions of container allocation to ship routes as well as sailing speed and fleet size to maximize profit over a particular season with given demands.
-
-\citet{Zhen17}: Develops a heuristic for an operational-level container routing strategy that incorporates information about the future demand distribution in order to increase the company's profit.
-
-\citet{Wang19a}: considers sailing speed-, bunkering- and shipment strategies jointly in order to maximize revenue from cargo minus bunker cost for a single service.
-
-\citet{Wang19b}: Examines two different strategies (overbooking and delivery-postponement) to allocate slots on vessels in a network at an operational level to consider in case of over- and underestimation of demand.
+%\subsection{Overview}
+%\citet{Maragos94}: dynamic ship capacity allocation for a liner shipping service with rates dependent on the time before departure at which the booking arrives. The task is to accept/reject bookings as they arrive to maximize the overall profit. 
+%
+%\citet{Lee07}: The goal is to decide whether a booking (either contractual or from the spot marked) should be accepted at given discrete time points before departure of a vessel.   
+%
+%\citet{Ting04} let the carrier allocate available space of a vessel to the different origin/destination-pairs to maximize the freight contribution (revenue) for the whole vessel. Their focus is more on the tactical than the operational level. 
+%
+%\citet{Demirag07} present models for letting the headquarter of an LS company find the best capacity allocation (and sales incentives) to each local sales agent on the routes with the objective improve overall performance (maximize revenue).
+%
+%\citet{Xianzhi07} consider the problem of how to allocate capacity on the vessels to cargo with maximal profit contribution when facing uncertain demands.
+%
+%\citet{Feng07} aim to fully utilize a vessel on an intra-Asian service (with many port calls) and maximize the operational profit of the vessel's voyage.
+%
+%\citet{Feng08}: [actually, the same] Maximize profit from an intra-Asian service by allocating slots to the different shipping agencies.
+%
+%\citet{Bingzhou08} makes a dynamic programming model (with a two-dimensional capacity) where bookings arrive one at a time with a given probability before departure. The aim is to give the company an accept/reject strategy that will maximize the expected revenue over the whole booking period. 
+%
+%\citet{Zou08} optimize allocation of contractual, ad hoc containers, and empty containers when demands are stochastic.
+%
+%\citet{Lu10}: slot allocation model (tactical level) to satisfy estimated seasonal demand to maximize profit per round trip voyage.
+%
+%\citet{Song12} investigate the problem of empty container repositioning and laden container routing at the operational level for a shipping network with multiple service routes, multiple deployed vessels, and multiple regular voyages.
+%
+%\citet{Zurheide12} develop a slot allocation model for determining booking limits for each specific container type and priority segment for each path from origin to destination in a network.  
+%In \citet{Zurheide15}, the same authors compares the performance (wrt. revenue) of several operational-level booking acceptance strategies based on a model allocating space on vessels to incoming bookings. 
+%
+%\citet{Chang15} use a two-level approach, where a model first maximizes operational profits for each intra-Asia service route individually. Afterwards, the empty containers resulting from this is redistributed in the whole network to minimize transportation cost.  
+%
+%\citet{Wang15b} address jointly the tactical level decisions of container allocation to ship routes as well as sailing speed and fleet size to maximize profit over a particular season with given demands.
+%
+%\citet{Zhen17} develop a heuristic for an operational-level container routing strategy that incorporates information about the future demand distribution in order to increase the company's profit.
+%
+%\citet{Wang19a} consider sailing speed-, bunkering- and shipment strategies jointly in order to maximize revenue from cargo minus bunker cost for a single service.
+%
+%\citet{Wang19b}: Examines two different strategies (overbooking and delivery-postponement) to allocate slots on vessels in a network at an operational level to consider in case of over- and underestimation of demand.
