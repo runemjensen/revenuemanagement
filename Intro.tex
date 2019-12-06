@@ -1,29 +1,38 @@
 \section{Introduction}
 
-Revenue Management (RM) is about providing customers with the right product at the right time and price. As an example, consider an airline operating a plane with 100 seats offering 50\% student discount. If the airline experiences that it can sell 80 tickets at full price, it should allocate 80 seats to these passengers and only offer them to students in the last minute if the allocation cannot be filled.
+Revenue Management (RM) is about providing customers with the right product at the right time and price. As an example, consider an airline operating a plane with 100 seats offering 50\% student discount. If the airline experiences that it can sell 80 tickets at full price, it should allocate 80 seats to these passengers and only offer them to students close to departure if the allocation cannot be filled.
 
-Before the liner shipping conferences were outlawed in Europe in 2008, the lack of price differentiation gave carriers little reason to introduce RM methods. Since then it has been recognized that the industry has the core characteristics required for RM systems \cite{Hellerman06}: perishability of the product offered, relatively fixed capacity, low marginal sales cost and high marginal capacity change cost, ability to segment markets, sale or booking in advance, stochastic demand, and forecastable demand. This has lead to a growing body of literature on RM methods for liner shipping (see Section~\ref{sec:relatedwork}) and deployment of RM systems in the industry.
+Before the Liner Shipping (LS) conferences were outlawed in Europe in 2008, the lack of price differentiation gave carriers little reason to introduce RM methods. Since then it has been recognized that the industry has the core characteristics required for RM systems \cite{Hellerman06}: perishability of the product offered, relatively fixed capacity, low marginal sales cost and high marginal capacity change cost, ability to segment markets, sale or booking in advance, stochastic demand, and forecastable demand. This has lead to a growing body of literature on RM methods for LS and deployment of RM systems in the industry.
 
-A limitation of all academic and industrial contributions that we are aware of, however, is that they use simple models of the operational capacity of the service networks. The main challenge is to model the cargo capacity of a vessel. A container slot on a cellular container vessel is different from a seat on an air plane or a hotel room. While a plane seat or a hotel room normally always is available if it is unused, a container slot can still be unavailable in this case. The reason is that a seaworthy vessel must comply with many interacting stowage rules and safety requirements. For instance, slots may be lost because the weight distribution otherwise would cause too high stress forces, insufficient transversal stability or too high draft. Moreover, slots in a single stack can be lost if the maximum weight of the stack or the maximum forces in the lashing gear otherwise are exceeded. In addition to vessel requirements, the operational capacity is affected by terminal constraints. A major challenge is to stay within the time window of the terminal call. This requires that the container moves are distributed along the vessel such that a sufficient number of quay cranes can work in parallel. Since the cranes can only access containers from the top of the stacks, it is also important to avoid that containers for later ports block containers to be discharged below them. Such blocking containers must be restowed which take time and is costly.
+For RM methods to work in practice, though, it is important that it is possible at any time to accurately estimate the free capacity for each booking class. This is difficult for LS service networks due to operational constraints. The main challenge is to calculate the free cargo capacity of a vessel. A container slot on a cellular container vessel is different from a seat on an air plane and a hotel room. While a plane seat or a hotel room normally always is available if it is unused, a container slot can still be unavailable in this case. The reason is that a seaworthy vessel must comply with many interacting stowage rules and safety requirements. For instance, slots may be lost because the weight distribution otherwise would cause too high stress forces, insufficient transversal stability or too high draft. Moreover, slots in a single stack can be lost if the maximum weight of the stack or the maximum forces in the lashing gear otherwise are exceeded. The slot may also be lost for different types of containers: 20' containers cannot be stowed on top of 40' containers, refrigerated containers (reefers) must be near power plugs, and containers with dangerous cargo must be separated. In addition to vessel requirements, the capacity of service networks is affected by terminal constraints. A major challenge is to stay within the time window of a terminal call. This requires that crane moves of containers are distributed along the vessel such that a sufficient number of quay cranes can work in parallel to meet the time window. Since the cranes can only access containers from the top of the stacks, it is also important to avoid that containers for later ports block containers to be discharged below them. Such blocking containers must be restowed which take time and is costly \cite{JPAV18}.
 
-1) revenue mangement methods relevant
-2) no academic methods consider stowage (see Section related work)
-3) indusry uses simple fixed capcity and guaranteed intake
-4) previous work Alberto thesis show 15\% off 
-4) In this paper: Include operational constraints into typical flow models use in the literature 
-   - We extend the SCM {\em standard capacity model} ICCL
-5) List of contributions
-   a) introduce it on a network flow model over a given time horizon. 
-   b) extend the basic vessel mode 
-      - GM from hydrostatic table machine learning
-      - Polyhedron lashing
-      - overstow
-   c) extend with a terminal model
-      - Crane utilization
-      - Restowage
-      - Maximum port stay
-    
-6) results show: hs impact is scalable.
+None of the existing RM methods for LS that we are aware of model these operational constraints. Our collaboration with carriers over the last 15 years has given us insight in commercial work processes used by more than half of the market. The industry standard is to measure the free capacity of a container vessel in terms of: free volume in TEU~\footnote{Twentyfoot Equivalent Units.}, free weight in tons, and free number of plugs for refers. For instance, if a vessel has nominal capacity of 3,600 TEU, 45,000 tons, and 600 plugs, and currently has 2,500 TEU, 36,000 tons, and 350 reefers on board, then the free capacity according to this measure is 1,100 TEU, 9,000 tons, and 250 reefers. Some companies improve the measure by reducing it for each port of call according to its stowage team's {\em guaranteed intake} for this port. For instance, the stowage team may know that due to the typical cargo mix on board the vessel at departure from the port, they only succeed to use 3,300 TEU out of its nominal 3,600 TEU. Nevertheless, it is still a static average measure that does not take the actual cargo mix that was loaded in the port into account. Academic contributions of RM methods for LS use even simpler capacity models (see Section~\ref{sec:relatedwork}).
 
-7) the remainder of the article is organized as follows: ..
+	In this article, we introduce an RM method for LS that to our knowledge is the first to include stowage and crane handling requirements. We consider the cargo flow in a service network over a time horizon and compute booking allocations or sales targets for the port calls in the network that maximize the total yield of loaded containers. Compared to similar previous work (e.g. Zurheide ...), we introduce operational constraints in the form of a vessel and terminal Standard Capacity Model (SCM). The vessel and terminal SCMs restrict the cargo flow on sailing and load/discharge arcs of the flow network, respectively. Both SCMs consist of linear constraints such that the resulting flow network is a linear program (LP) that can be solved efficiently with an of-the-shelf solver like CPLEX and COIN-OR (cite).
+	The vessel SCM is an extension of a linear model of hydrostatic equilibrium introduced in \cite{ICCL18}. The paper includes an extensive experimental evaluation on real vessel data that shows that the model can predict draft, trim, and stress forces accurately. Our extensions to this model contribute:
+\begin{itemize}
 
+\item The first linear approximation of restows that we are aware of. Restow minimization is a well-known NP-hard problem (cite Tierney, Isreal). It has attracted more attention than any other stowage planning objective  (e.g., bla bla). For that reason, it is surprising that a rather simple yet strong linear approximation to date has been overlooked. 
+
+\item The first linear approximation of lashing forces that we are aware of. It approximates non-linear but convex trade-offs between containers with different length and weight. 
+  
+\item A linear approximation of transversal stability (metacentric height) that uses regression analysis directly on the hydrostatic table. It avoids the fixed target displacement required in previous work (e.g., Pacino, Alberto).
+  
+\end{itemize}
+
+The terminal SCM restricts the cargo flow in arcs in the network that represent load and discharge moves of cranes. Its major contributions are : 
+\begin{itemize}
+
+\item The first scalable model of cargo restowage. To our knowledge, only (botter) previously has represented where on the vessel restows are re-loaded. His (their?) Integer Programming (IP) model of this, however, is intractable.
+
+\item A further development of the linear port stay model based on long cranes that was introduced by (pacino). Our model also takes the actual number of quay cranes available into account.    
+
+\end{itemize}
+
+We took six out of Maersk Line's seven Asian-Europe (AE) services in the fall 2018 and created a flow network over 90 days, where cargo was loaded in the first 45 days. We used real vessel data for a 15,000 TEU vessel. The resulting network had 296 port calls and each call was associated with a booking forecast defining a minimum amount to transport of each booking class (e.g., due to customer contracts) and a maximum amount achievable on the sport market. Yields for each booking class were derived from public freight rate data. The objective of the optimization was to find sales targets within the forecasted range maximizing the yield of loaded containers. The vessel SCM was adjusted to highest accuracy with 26 longitudinal sections. 
+
+The network could be solved to optimality with CPLEX' barrier method in 23 minutes. The result had explicit operational parameters like stowage condition, trim, draft, crane work time etc. for all port calls and showed a 20\% lower yield compared to the nominal version of the three dimensional capacity model that is the industry standard in LS commercial decision making today.  
+
+The results show a significant reduction of the available capacity when taking operational constraints into account. This is substantial in an industry with a profit margin of a few percent. Moreover, the results show that our LP flow network model is scalable even without using advanced methods like column generation. 
+
+The rest of this article is organized as follows. Section XXX. ..
